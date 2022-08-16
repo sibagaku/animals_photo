@@ -1,0 +1,39 @@
+<main>
+
+  <%= render "header" %>
+
+  <div class="container">
+      <div class="row">
+        <div class="col-5 pl-0 top-btn">
+          <%= link_to new_user_registration_path, class:"btn btn-success mt-5 p-4 top-btn-custom" do %>
+           <h2 class="top-btn-text">Sign_up</h2><br>
+           <p class="top-btn-text">(新規登録はこちらから)</p>
+          <% end %>
+
+          <%= link_to new_user_session_path, class:"btn btn-info mt-4 p-4 top-btn-custom" do %>
+           <h2 class="top-btn-text">Log_in</h2><br>
+           <p class="top-btn-text">(登録済みの方はこちらから)</p>
+          <% end %>
+
+          <%= link_to new_guest_path, class:"btn btn-warning mt-4 p-4 top-btn-custom" do %>
+           <h2 class="top-btn-text">Guest_login</h2><br>
+           <p class="top-btn-text">(お試しの方はこちらから)</p>
+          <% end %>
+        </div>
+
+        <div class="col-7 mt-5 px-0">
+          <%= image_tag "noogata-pakuPAR546192712_TP_V.jpg", class:"top-icon" %>
+          <p class="mt-4 top-text">
+            <strong>動物たちの写真を投稿し、かわいい姿やかっこいい姿を,<br>
+            みんなでシェアしていきましょう！<br>
+            また、好みの写真を見つけて自分だけの<br>
+            お気に入りセットを作っていきましょう！</strong>
+          </p>
+        </div>
+
+      </div>
+
+
+
+  </div>
+</main>

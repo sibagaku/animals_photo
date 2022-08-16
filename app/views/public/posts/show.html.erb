@@ -1,0 +1,66 @@
+<main>
+  <%= render "public/users/list" %>
+
+  <div class="container">
+    <div class="row post-show">
+        <div class="my-auto">
+          <%= image_tag @user.get_profile_image(100,100) %>
+        </div>
+        <div class="ml-4 my-auto">
+          <%= link_to @user.name, user_path(@user.id) %><br>
+          <%= @post.created_at.strftime("%Y/%m/%d") %>
+        </div>
+        <% if @user != current_user %>
+          <div class="ml-auto my-auto">
+            <%= link_to "フォローする", follow_path, class:"btn btn-success" %>
+          </div>
+        <% else %>
+        <% end %>
+    </div>
+    <div class="row post_show_item">
+      <%= image_tag @post.image, class:"post-show-img"%>
+    </div>
+    <div class="post_show_content">
+      👍：〇
+      <% if @user == current_user %>
+        <%= link_to "編集する", edit_post_path(@post.id) %>
+      <% else %>
+      <% end %>
+    </div>
+    <div class="post-show-text">
+      <%= @post.introduction %>
+    </div>
+
+    <div class="comment_input">
+      <%= form_with model: [@post,@post_comment] do |f| %>
+        <%= f.text_area :comment_text, rows:"3", class:"form-control", placeholder:"コメントをここに入力してください" %>
+        <div class="text-right">
+          <%= f.submit"送信する" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="comment-list">
+      <p>コメント件数：<%= @post.comments.count %></p>
+      <% @post.comments.each do |comment| %>
+        <p>
+          <%= image_tag comment.user.get_profile_image(80,80) %>
+          <%= link_to comment.user.name, user_path(comment.user.id) %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
+        </p>
+        <div class="comment-text">
+          <%= comment.comment_text %>
+        </div>
+        <div class="comment-delete">
+          <% if comment.user == current_user %>
+            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
+
+
+
+  </div>
+
+
+</main>

@@ -1,0 +1,8 @@
+<% if @user.posts.count >= 1 %>
+  <% @user.posts.each do |post| %>
+    <%= image_tag post.image, size:"150x150" %>
+  <% end %>
+<% else %>
+  <p>投稿した写真はありません</p>
+<% end %>
+

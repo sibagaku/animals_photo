@@ -1,0 +1,7 @@
+<% if @user.posts.count >= 1 %>
+  <% @user.posts.each do |post| %>
+    <%= post.image %>
+  <% end %>
+<% else %>
+  <p>まだいいねした投稿はありません</p>
+<% end %>

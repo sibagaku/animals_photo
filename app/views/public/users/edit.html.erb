@@ -1,0 +1,26 @@
+<main>
+  <%= render "list" %>
+
+  <div class="container">
+
+  <h2 class="title">～　<strong>会員情報編集画面</strong>　～</h2>
+
+  <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+    <div class="field">
+      <strong><%= f.label :プロフィール画像： %></strong><br>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :ニックネーム： %></strong><br>
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :自己紹介文： %></strong><br>
+      <%= f.text_area :self_introduction, class:"form-control", rows:"7" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
+    </div>
+  <% end %>
+ </div>
+</main>
