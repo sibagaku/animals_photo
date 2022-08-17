@@ -196,6 +196,7 @@
     border: 1px solid black;
     padding: 10px;
     margin-right: 5%;
+    margin-bottom: 3%;
 }
 
 .post-index-list:nth-child(even) {
@@ -209,6 +210,11 @@
 
 .post-index-user {
     display: flex;
+}
+
+.post-delete {
+    margin-top: 50px;
+    text-align: center;
 }
 
   .side-right {

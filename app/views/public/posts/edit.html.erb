@@ -1,7 +1,7 @@
 <main>
   <%= render "public/users/list" %>
 
-  <h2 class="title">～　<strong>投稿の編集</strong>　～</h2>
+  <h2 class="title"><strong>投稿の編集</strong></h2>
 
   <%= form_with model: @post, url: post_path, method: :patch do |f| %>
     <div class="field">
@@ -14,8 +14,12 @@
       <%= f.text_area :introduction, class:"form-control", rows:"4" %>
     </div>
     <div class="actions">
-      <%= f.submit"変更を保存する", class:"btn btn-success" %>
+      <%= f.submit"変更を保存する", class:"btn btn-success btn-custom" %>
     </div>
   <% end %>
+
+  <div class="post-delete">
+    <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, class:"btn btn-danger", data: {confirm: "投稿を削除しますか？"} %>
+  </div>
 
 </main>
