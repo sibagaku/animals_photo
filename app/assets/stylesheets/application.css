@@ -197,6 +197,7 @@
     padding: 10px;
     margin-right: 5%;
     margin-bottom: 3%;
+    position: relative;
 }
 
 .post-index-list:nth-child(even) {
@@ -205,16 +206,30 @@
 
 .post-index-image {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .post-index-user {
     display: flex;
 }
 
+.post-favorite {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
 .post-delete {
     margin-top: 50px;
     text-align: center;
+}
+
+.favorite-color {
+    color: #66cdaa;
+}
+
+.unfavorite-color {
+    color: black;
 }
 
   .side-right {

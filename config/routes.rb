@@ -35,6 +35,7 @@ scope module: :public do
   get "users/notification", as:"notification" #ユーザーの通知一覧画面
   resources :users, only:[:index, :show, :edit, :update]
   resources :posts do
+    resource :favorites, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]
   end
 end

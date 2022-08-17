@@ -22,8 +22,8 @@
           <%= link_to post.user.name, post_path(post.id) %><br>
           <%= post.created_at.strftime("%Y/%m/%d") %>
         </div>
-        <div class="ml-auto mt-auto">
-          👍：〇
+        <div class="post-favorite">
+          <i class="fa-solid fa-thumbs-up favorite-color"></i> <%= post.favorites.count %>
         </div>
       </div>
     </div>

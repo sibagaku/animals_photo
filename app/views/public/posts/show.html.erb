@@ -21,11 +21,24 @@
       <%= image_tag @post.image, class:"post-show-img"%>
     </div>
     <div class="post_show_content">
-      👍：〇
-      <% if @user == current_user %>
-        <%= link_to "編集する", edit_post_path(@post.id) %>
+      <% if @post.user_id == current_user.id %>
+        <div><i class="fa-solid fa-thumbs-up favorite-color"></i> <%= @post.favorites.count %>いいね</div>
       <% else %>
+        <% if @post.favorited_by?(current_user) %>
+          <%= link_to post_favorites_path(@post), method: :delete do %>
+            <i class="fa-solid fa-thumbs-up favorite-color"></i> <%= @post.favorites.count %>いいね
+          <% end %>
+        <% else %>
+          <%= link_to post_favorites_path(@post), method: :post do %>
+            <i class="fa-regular fa-thumbs-up unfavorite-color"></i> <%= @post.favorites.count %>いいね
+          <% end %>
+        <% end %>
       <% end %>
+
+          <% if @user == current_user %>
+            <%= link_to "編集する", edit_post_path(@post.id) %>
+          <% else %>
+          <% end %>
     </div>
     <div class="post-show-text">
       <%= @post.introduction %>
