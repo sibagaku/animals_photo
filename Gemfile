@@ -67,3 +67,4 @@ gem "net-imap"
 
 gem "devise"
 gem "jquery-rails"
+gem 'kaminari','~> 1.2.1'

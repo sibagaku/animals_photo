@@ -1,7 +1,13 @@
-<% if @user.posts.count >= 1 %>
-  <% @user.posts.each do |post| %>
-    <%= post.image %>
-  <% end %>
+<% if @favorites.count >= 1 %>
+  <div class="xxx">
+    <% @favorites.each do |favorite| %>
+      <div class="my-image-link">
+        <%= link_to post_path(favorite.post.id) do %>
+          <%= image_tag favorite.post.image, class:"my-image" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>まだいいねした投稿はありません</p>
 <% end %>

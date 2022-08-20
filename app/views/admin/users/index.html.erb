@@ -1,0 +1,37 @@
+<main>
+
+<%= render "list" %>
+
+<div class="admin-index-box">
+
+  <h2 class="admin-index-title"><strong>登録済みのユーザー一覧</strong></h2>
+
+  <div>
+  <div class="admin-index-list">
+    <% @users.each do |user| %>
+      <div class="admin-index-user">
+        <%= link_to admin_user_path(user.id) do %>
+          <div>
+            <%= image_tag user.profile_image, class:"admin-user-img" %>
+          </div>
+          <div class="admin-index-info">
+            <span class="admin-index-name"><%= user.name %></span><br>
+            <% if user.is_deleted == false %>
+              <strong class="admin-index-false">有効</strong>
+            <% else %>
+              <strong class="admin-index-true">退会</strong>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= paginate @users %>
+  </div>
+  </div>
+
+
+
+</div>
+</main>

@@ -37,12 +37,22 @@
 
  main {
     width: 70%;
+    background-color: #FFF;
  }
 
  .before_login_header {
     height:160px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #82D92B;
+ }
+
+ .login_header {
+    border-bottom: 2px solid #82D92B;
+ }
+
+ .fa-regular {
+     font-size: 30px;
+     color: #6DA644;
  }
 
  .top-btn {
@@ -68,7 +78,7 @@
    text-align: center;
    border: 3px solid black;
    border-radius: 10px;
-   background-color: #ffff99;
+   background-color: #FCC900;
    padding: 10px;
  }
 
@@ -90,11 +100,20 @@
  .btn-custom {
     width: 60%;
     padding: 10px;
-    margin-top: 30px;
+    margin-top: 25px;
  }
 
- .login_header {
-    border-bottom: 1px solid black;
+ .delete-btn {
+    margin-top: 50px;
+    text-align: center;
+ }
+
+ .delete-btn-custom {
+    width: 130px;
+ }
+
+ .danger-text {
+    text-align: center;
  }
 
  .show-user-name {
@@ -106,19 +125,74 @@
  }
 
 .show-user-introduction {
-    border: 1px solid black;
+    border: 1px solid #82D92B;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.tab-menu {
+    display: flex;
+}
+
+.tab-content {
+    width: 15%;
+    border: 1px solid #82D92B;
+    background-color: #6DA644;
+    padding: 15px 0 15px;
+    text-align: center;
 }
 
 .tab-btn {
-    border: 1px solid black;
-    padding: 10px;
+    color: #F2EFEB;
 }
 
 .tab-list {
-    background-color: red;
+    border: 1px solid #6DA644;
+    background-color: #C8F288;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.xxx {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sss {
+    width: 30%;
+}
+
+.my-image-link {
+    width: 30%;
+    margin: 0 5% 2% 0;
+    border: 1px solid #6DA644;
+}
+
+.my-image {
+    width: 100%;
+    height: 100%;
+}
+
+.my-image-link:nth-child(3n) {
+    margin-right: 0;
+}
+
+.my-image-link:nth-child(n+7) {
+    margin-bottom: 0;
+}
+
+.pagination {
+    margin: 15px 0 0;
+    justify-content: center;
+}
+
+.page {
+    margin: 0 5px 0;
+}
+
+.next, .last, .first, .prev {
+    margin: 0 3px 0;
 }
 
 .title {
@@ -206,6 +280,7 @@
 
 .post-index-image {
     width: 100%;
+    height: 250px;
     margin-bottom: 10px;
 }
 
@@ -232,7 +307,176 @@
     color: black;
 }
 
-  .side-right {
+.search-box {
+    border: 2px solid #6DA644;
+    border-radius: 10px;
+    width: 80%;
+    margin: 180px auto 0;
+    padding: 80px;
+    text-align: center;
+    background-color: #F2EFEB;
+}
+
+.user-index {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.user-index-text {
+    margin: 30px 0;
+}
+
+.user-count {
+    font-size: 30px;
+}
+
+.user-index-list {
+
+}
+
+.user-index-card {
+    display: flex;
+    border: 2px solid #6DA644;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
+    background-color: #F2EFEB;
+}
+
+.user-index-img {
+    border: 1px solid #6DA644;
+}
+
+.user-index-name {
+    margin: auto 0 auto 30px;
+}
+
+.user-index-namecustom {
+    font-size: 25px;
+    color: #6DA644;
+}
+
+.search-form {
+    margin-top: 60px;
+}
+
+.admin-header {
+    display: flex;
+    border-bottom: 2px solid #6DA644;
+}
+
+.admin-header-item1 {
+    margin-right: auto;
+
+}
+
+.admin-header-item2 {
+    margin: auto 0 auto auto;
+}
+
+.admin-btn {
+    width: 130px;
+}
+
+.admin-index-box {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.admin-index-title {
+    margin: 30px 0;
+}
+
+.admin-index-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.admin-index-user {
+    width: 30%;
+    margin: 0 5% 3% 0;
+    border: 2px solid #6DA644;
+}
+
+.admin-index-user:nth-child(3n) {
+    margin-right: 0;
+}
+
+.admin-user-img {
+    width: 100%;
+    height: 150px;
+}
+
+.admin-index-info {
+    background-color: #F2EFEB;
+    padding: 5px;
+}
+
+.admin-index-name {
+    color: #6DA644;
+}
+
+.admin-index-false {
+    color: #6DA644;
+}
+
+.admin-index-true {
+    color: red;
+}
+
+.admin-show-info {
+    margin-top: 30px;
+    display: flex;
+    background-color: #F2EFEB;
+}
+
+.admin-show-profile-image {
+    border: 2px solid #6DA644;
+}
+
+.admin-show-profile {
+    margin: auto 0 auto 40px;
+}
+
+.admin-show-name {
+    font-size: 30px;
+}
+.admin-show-introduction {
+    width: 60%;
+    margin: 20px auto 0;
+    border: 1px solid #82D92B;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F2EFEB;
+}
+
+.admin-show-deleted {
+    font-size: 25px;
+}
+
+.admin-show-box {
+    border: 1px solid #6DA644;
+    background-color: #C8F288;
+    margin: 20px 0px;
+    padding: 10px;
+}
+
+.admin-show-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.admin-show-img {
+    width: 30%;
+}
+
+.admin-edit {
+
+    width: 60%;
+    margin: 30px auto;
+}
+
+.side-right {
     transform: scale(-1, 1);
     background-image: url("22582227.jpg");
     background-position: center;

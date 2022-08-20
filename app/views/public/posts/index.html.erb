@@ -15,10 +15,10 @@
         <%= image_tag post.image, class:"post-index-image" %>
       </div>
       <div class="post-index-user">
-        <div>
+        <div class="my-auto">
           <%= image_tag post.user.get_profile_image(80,80) %>
         </div>
-        <div class="ml-2 my-auto">
+        <div>
           <%= link_to post.user.name, post_path(post.id) %><br>
           <%= post.created_at.strftime("%Y/%m/%d") %>
         </div>

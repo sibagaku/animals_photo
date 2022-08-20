@@ -1,8 +1,19 @@
-<% if @user.posts.count >= 1 %>
-  <% @user.posts.each do |post| %>
-    <%= image_tag post.image, size:"150x150" %>
-  <% end %>
+<% if @posts.count >= 1 %>
+  <div class="xxx">
+    <% @posts.each do |post| %>
+      <div class="my-image-link">
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.image, class:"my-image" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @posts %>
 <% else %>
   <p>投稿した写真はありません</p>
 <% end %>
+
+
+
+
 

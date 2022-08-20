@@ -37,13 +37,15 @@
       <div class="row mt-4"></div>
     <% end %>
 
-    <div class="row">
-      <div class="col">
-        <%= link_to "投稿一覧", user_path(current_user), remote: true, class:"tab-btn" %>
-        <%= link_to "いいね一覧", bookmark_path, remote: true, class:"tab-btn" %>
+      <div class="tab-menu">
+        <div class="tab-content">
+          <%= link_to "投稿一覧", user_path(current_user), remote: true, class:"tab-btn" %>
+        </div>
+        <div  class="tab-content">
+          <%= link_to "いいね一覧", bookmark_path, remote: true, class:"tab-btn" %>
+        </div>
       </div>
-    </div>
-    <div class="tab-list mt-2">
+    <div class="tab-list">
       <% if @user.present? %>
         <div class="top_area">
           <%= render "show" %>

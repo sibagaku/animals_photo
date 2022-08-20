@@ -9,10 +9,10 @@ devise_scope :public do
 end
 
 #会員の退会確認画面
-get "users/unsubscribe" => "public/users#unsubscribe", as:"unsubscribe"
+get "users/unsubscribe/:id" => "public/users#unsubscribe", as:"unsubscribe"
 
 #会員の退会処理（退会ステータスの更新）
-patch "users/withdral" => "public/users#withdral", as:"withdral"
+patch "users/:id/withdral" => "public/users#withdral", as:"withdral"
 
 
 #会員用
@@ -30,6 +30,7 @@ get "users/bookmark/:id" => "public/users#bookmark", as:"bookmark" #ユーザー
 get "users/follow" => "public/users#follow", as:"follow" #会員がフォローしているユーザーの一覧画面
 get "users/follower" => "public/users#follower", as:"follower" #あるユーザーをフォローしているユーザー（フォロワー）の一覧画面
 get "users/search" => "public/users#search", as:"search" #ユーザー検索画面
+
 
 scope module: :public do
   get "users/notification", as:"notification" #ユーザーの通知一覧画面

@@ -1,0 +1,17 @@
+<main>
+  <%= render "list" %>
+
+  <h2 class="title"><strong>退会確認画面</strong></h2>
+
+  <p class="danger-text">
+    退会されると今までの投稿やブックマークが<br>
+    <strong>全て削除</strong>されてしまいます。<br>
+    退会される場合は「退会する」をクリックしてください。
+  </p>
+
+  <div class="delete-btn">
+    <%= link_to "退会しない", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5" %>
+    <%= link_to "退会する", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom" %>
+  </div>
+
+</main>

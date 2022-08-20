@@ -5,11 +5,16 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.none
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page]).per(9)
   end
 
   def edit
@@ -23,11 +28,14 @@ class Public::UsersController < ApplicationController
   end
 
   def unsubscribe
-
+    @user = User.find(params[:id])
   end
 
   def withdral
-
+    @user = current_user
+    @user.update(is_deleted: true) #会員の情報を有効から退会にする
+    reset_session #情報の削除
+    redirect_to root_path
   end
 
   def follow
@@ -40,11 +48,11 @@ class Public::UsersController < ApplicationController
 
 
   def search
-
+    
   end
 
   def bookmark
-    @user = User.find(params[:id])
+    @favorites = Favorite.where(user_id: current_user.id)
   end
 
   private
