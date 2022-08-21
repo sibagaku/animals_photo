@@ -12,7 +12,8 @@ class Public::PostsController < ApplicationController
     end
 
     def index
-      @posts = Post.all
+      @post_all = Post.all
+      @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
     end
 
     def show

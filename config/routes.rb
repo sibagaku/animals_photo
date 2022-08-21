@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'follows/followings'
+    get 'follows/followers'
+  end
 #トップページ
 root to:"public/homes#top"
 
@@ -34,7 +38,11 @@ get "users/search" => "public/users#search", as:"search" #ユーザー検索画�
 
 scope module: :public do
   get "users/notification", as:"notification" #ユーザーの通知一覧画面
-  resources :users, only:[:index, :show, :edit, :update]
+  resources :users, only:[:index, :show, :edit, :update] do
+    resource :follows, only: [:create, :destroy]
+    get "followings" => "follows#followings", as:"followings"
+    get "followers" => "follows#followers", as:"followers"
+  end
   resources :posts do
     resource :favorites, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]

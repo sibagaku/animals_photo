@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-3">
+      <%= image_tag user.get_profile_image(170,170) %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12 mt-2">
+          <strong class="show-user-name"><%= user.name %></strong>
+        </div>
+        <div class="col-12">
+          ユーザーID：<%= user.id %><br>
+        </div>
+        <div class="col-12 mt-2">
+          <p>
+            フォロー：<%= link_to "〇人", follow_path %>
+            フォロワー：<%= link_to "〇人", follower_path %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 my-auto">
+      <% if current_user.following?(user) %>
+        <%= link_to "フォローを外す", user_follows_path(user.id), method: :delete, class:"btn btn-success show-user-btn btn-lg" %>
+      <% else %>
+        <%= link_to "フォローする", user_follows_path(user.id), method: :post, class:"btn btn-success show-user-btn btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if user.self_introduction %>
+    <div class="row mt-2">
+      <div class="col-8 mx-auto show-user-introduction">
+        <%= user.self_introduction %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row mt-4"></div>
+  <% end %>
+
+    <div class="tab-menu">
+      <div class="tab-content">
+        <%= link_to "投稿一覧", user_path(user.id), remote: true, class:"tab-btn" %>
+      </div>
+    </div>
+  <div class="tab-list">
+    <% if user.present? %>
+      <div class="top_area">
+        <%= render "show" %>
+      </div>
+    <% end %>
+  </div>
+</div>

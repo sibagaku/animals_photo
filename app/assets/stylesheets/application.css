@@ -128,7 +128,7 @@
     border: 1px solid #82D92B;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
 .tab-menu {
@@ -183,7 +183,7 @@
 }
 
 .pagination {
-    margin: 15px 0 0;
+    margin: 15px 0 20px;
     justify-content: center;
 }
 
@@ -261,6 +261,9 @@
 
 .post-index-box {
     margin: 0 20px 0;
+}
+
+.post-index-content {
     display: flex;
     flex-wrap:wrap;
 }
@@ -278,6 +281,10 @@
     margin-right:  0;
 }
 
+.post-index-list:nth-last-child(-n+2) {
+    margin-bottom:  0;
+}
+
 .post-index-image {
     width: 100%;
     height: 250px;
@@ -286,6 +293,10 @@
 
 .post-index-user {
     display: flex;
+}
+
+.post-index-info {
+    margin-left: 20px;
 }
 
 .post-favorite {
@@ -301,10 +312,12 @@
 
 .favorite-color {
     color: #66cdaa;
+    font-size: 25px;
 }
 
 .unfavorite-color {
     color: black;
+    font-size: 25px;
 }
 
 .search-box {
