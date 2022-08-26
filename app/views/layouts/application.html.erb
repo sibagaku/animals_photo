@@ -12,9 +12,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="main-content">
+  <body>
+  <div class="main-content">
     <div class="side-left"></div>
     <%= yield %>
     <div class="side-right"></div>
+  </div>
+  <footer>
+    <p class="footer-text">@animals photo</p>
+  </footer>
   </body>
+
 </html>

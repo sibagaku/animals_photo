@@ -1,7 +1,8 @@
 <main>
-  <%= render "public/users/list" %>
 
-  <h2 class="title">～　<strong>新規投稿画面</strong>　～</h2>
+    <%= render "public/users/list" %>
+
+  <h2 class="title"><strong>新規投稿画面</strong></h2>
 
   <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class="field">
@@ -14,7 +15,7 @@
       <%= f.text_area :introduction, class:"form-control", rows:"4" %>
     </div>
     <div class="actions">
-      <%= f.submit"写真を投稿する", class:"btn btn-success" %>
+      <%= f.submit"写真を投稿する", class:"btn btn-success btn-custom" %>
     </div>
   <% end %>
 

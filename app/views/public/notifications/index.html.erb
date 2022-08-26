@@ -1,0 +1,18 @@
+<main>
+
+  <%= render "public/users/list" %>
+
+  <div class="notification-delete">
+    <%= link_to "通知を削除する", user_notifications_path(current_user.id), method: :delete, class:"btn btn-danger", data: {confirm: "通知を削除しますか？"} %>
+  </div>
+
+  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+  <% if notifications.exists? %>
+    <%= render "notifications", {notification: notifications} %>
+    <%= paginate @notifications %>
+  <% else %>
+    <p class="notification-index"><strong>・通知はありません</strong></p>
+  <% end %>
+
+
+</main>

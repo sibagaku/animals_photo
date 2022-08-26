@@ -1,9 +1,18 @@
 <header>
-      <nav class="navber navber-expand-lg navbar-light">
+      <nav class="navber navber-expand-lg navbar-light mx-0">
         <div class="container login_header d-flex justify-content-between align-items-center">
             <div>
-              <%= link_to notification_path, class:"mr-auto" do%>
-                <i class="fa-regular fa-envelope"></i>
+              <% if unchecked_notifications.any? %>
+                <%= link_to user_notifications_path(current_user.id), class:"mr-auto" do %>
+                  <span class="fa-stack">
+                    <i class="fa-regular fa-envelope"></i>
+                    <i class="fa-solid fa-circle n-circle fa-stack-1x"></i>
+                  </span>
+                <% end %>
+              <% else %>
+                <%= link_to user_notifications_path(current_user.id), class:"mr-auto" do %>
+                  <i class="fa-regular fa-envelope"></i>
+                <% end %>
               <% end %>
             </div>
             <div>

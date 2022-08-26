@@ -15,7 +15,7 @@
            <p class="top-btn-text">(登録済みの方はこちらから)</p>
           <% end %>
 
-          <%= link_to new_guest_path, class:"btn btn-warning mt-4 p-4 top-btn-custom" do %>
+          <%= link_to guest_sign_in_path, method: :post, class:"btn btn-warning mt-4 p-4 top-btn-custom" do %>
            <h2 class="top-btn-text">Guest_login</h2><br>
            <p class="top-btn-text">(お試しの方はこちらから)</p>
           <% end %>

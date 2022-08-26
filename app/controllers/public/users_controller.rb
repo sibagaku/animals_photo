@@ -1,8 +1,5 @@
 class Public::UsersController < ApplicationController
 
-  def notification
-
-  end
 
   def index
     if params[:name].present?
@@ -39,16 +36,18 @@ class Public::UsersController < ApplicationController
   end
 
   def follow
-
+    @user = User.find(params[:id])
+    @users = @user.followings.page(params[:page]).per(10)
   end
 
   def follower
-
+    @user = User.find(params[:id])
+    @users = @user.follow.page(params[:page]).per(10)
   end
 
 
   def search
-    
+
   end
 
   def bookmark

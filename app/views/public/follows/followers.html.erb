@@ -1,2 +1,29 @@
-<h1>Public::Follows#followers</h1>
-<p>Find me in app/views/public/follows/followers.html.erb</p>
+<main>
+
+  <%= render "public/users/list" %>
+
+  <div class="user-index">
+    <div class="follow-title">
+      <strong class=""><%= @user.name %></strong>さんのフォロワー：<%= @user.followers.count %>人
+    </div>
+
+    <div>
+    <div class="follow-user-list">
+      <% @users.each do |user| %>
+        <div class="user-index-card">
+          <div class="user-index-img">
+            <%= image_tag user.get_profile_image(100,100) %>
+          </div>
+          <div class="user-index-name">
+            <%= link_to user.name, user_path(user.id), class:"user-index-namecustom" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <%= paginate @users %>
+    </div>
+    </div>
+  </div>
+</main>
+

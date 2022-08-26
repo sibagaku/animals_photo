@@ -13,8 +13,8 @@
         </div>
         <div class="col-12 mt-2">
           <p>
-            フォロー：<%= link_to "〇人", follow_path %>
-            フォロワー：<%= link_to "〇人", follower_path %>
+            フォロー：<%= link_to user.followings.count.to_s + "人", user_followings_path(user.id) %>
+              フォロワー：<%= link_to user.followers.count.to_s + "人", user_followers_path(user.id) %>
           </p>
         </div>
       </div>

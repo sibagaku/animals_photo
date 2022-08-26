@@ -6,15 +6,15 @@
       <div class="col-6">
         <div class="row">
           <div class="col-12 mt-2">
-            <strong class="show-user-name"><%= user.name %></strong> <%= link_to "変更", edit_user_path(user.id) %>
+            <strong class="show-user-name"><%= user.name %></strong> <%= link_to "変更", edit_user_path(user.id), class:"link-color" %>
           </div>
           <div class="col-12">
             ユーザーID：<%= user.id %><br>
           </div>
           <div class="col-12 mt-2">
             <p>
-              フォロー：<%= link_to "〇人", follow_path %>
-              フォロワー：<%= link_to "〇人", follower_path %>
+              フォロー：<strong><%= link_to user.followings.count.to_s + "人", user_followings_path(user.id), class:"link-color" %></strong>
+              　フォロワー：<strong><%= link_to user.followers.count.to_s + "人", user_followers_path(user.id), class:"link-color" %></strong>
             </p>
           </div>
         </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <% if user.self_introduction %>
+    <% if user.self_introduction != ""  %>
       <div class="row mt-2">
         <div class="col-8 mx-auto show-user-introduction">
           <%= user.self_introduction %>

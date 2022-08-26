@@ -20,24 +20,35 @@
 }
 
 .main-content {
-    display: flex
+    display: flex;
+    min-height: 100vh;
+}
+
+.n-circle {
+    position: absolute;
+    padding-left: 20px;
+    padding-bottom: 55px;
+    color: #efa04c;
 }
 
 .logo {
   border-radius: 50%;
 }
 
+
+
  .side-left {
     background-image: url("22582227.jpg");
     background-position: center;
     background-size: contain;
     width:15%;
-    height: 100vh;
+    height: auto;
  }
 
  main {
     width: 70%;
     background-color: #FFF;
+
  }
 
  .before_login_header {
@@ -154,7 +165,7 @@
     margin-bottom: 30px;
 }
 
-.xxx {
+.my-image-list {
     display: flex;
     flex-wrap: wrap;
 }
@@ -256,11 +267,21 @@
 }
 
 .post-index-top {
-    margin: 30px 0 30px 20px;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.post-index-form {
+    margin: auto 0 auto auto;
+}
+
+.post-index-formcustom {
+    width: 300px;
 }
 
 .post-index-box {
-    margin: 0 20px 0;
+    width: 80%;
+    margin: 0 auto 0;
 }
 
 .post-index-content {
@@ -269,10 +290,11 @@
 }
 
 .post-index-list {
-    width:45%;
-    border: 1px solid black;
+    width:48%;
+    border: 2px solid #6DA644;
+    background-color: #F2EFEB;
     padding: 10px;
-    margin-right: 5%;
+    margin-right: 4%;
     margin-bottom: 3%;
     position: relative;
 }
@@ -323,15 +345,19 @@
 .search-box {
     border: 2px solid #6DA644;
     border-radius: 10px;
-    width: 80%;
+    width: 60%;
     margin: 180px auto 0;
     padding: 80px;
     text-align: center;
     background-color: #F2EFEB;
 }
 
+.search-form {
+    margin-top: 60px;
+}
+
 .user-index {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -341,10 +367,6 @@
 
 .user-count {
     font-size: 30px;
-}
-
-.user-index-list {
-
 }
 
 .user-index-card {
@@ -369,8 +391,24 @@
     color: #6DA644;
 }
 
-.search-form {
-    margin-top: 60px;
+.follow-title {
+    font-size: 25px;
+    margin: 30px 0;
+}
+
+.notification-index {
+    width: 70%;
+    margin: 30px auto 0;
+}
+
+.link-color {
+    color: #6DA644;
+}
+
+.notification-delete {
+    width: 70%;
+    margin: 20px auto 20px auto;
+    text-align: right;
 }
 
 .admin-header {
@@ -495,6 +533,19 @@
     background-position: center;
     background-size: contain;
     width:15%;
-    height: 100vh;
+    height: auto;
+ }
+
+footer {
+    width: 100%;
+    padding: 30px 0;
+    background-image: url("footer.png");
+    background-size: auto;
+    background-position: bottom;
+}
+
+ .footer-text {
+    text-align: center;
+    font-size: 20px;
  }
 

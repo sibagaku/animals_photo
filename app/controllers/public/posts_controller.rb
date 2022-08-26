@@ -12,8 +12,16 @@ class Public::PostsController < ApplicationController
     end
 
     def index
-      @post_all = Post.all
-      @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+      if params[:introduction] == nil
+        @post_all = Post.all
+        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+      elsif params[:introduction] == ""
+        @post_all = Post.all
+        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+      else
+        @post_all = Post.where("introduction LIKE ?", "%#{params[:introduction]}%")
+        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc).where("introduction LIKE ?", "%#{params[:introduction]}%")
+      end
     end
 
     def show
