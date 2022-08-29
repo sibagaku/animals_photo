@@ -3,7 +3,7 @@ class Public::UsersController < ApplicationController
 
   def index
     if params[:name].present?
-      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+      @users = User.where('name LIKE ?', "%#{params[:name]}%").where.not(id: current_user.id)
     else
       @users = User.none
     end

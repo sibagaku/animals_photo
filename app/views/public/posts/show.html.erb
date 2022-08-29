@@ -7,7 +7,7 @@
           <%= image_tag @user.get_profile_image(100,100) %>
         </div>
         <div class="ml-4 my-auto">
-          <%= link_to @user.name, user_path(@user.id) %><br>
+          <strong><%= link_to @user.name, user_path(@user.id), class:"link-color" %></strong><br>
           <%= @post.created_at.strftime("%Y/%m/%d") %>
         </div>
         <% if @user != current_user %>
@@ -40,7 +40,7 @@
       <% end %>
 
           <% if @user == current_user %>
-            <%= link_to "編集する", edit_post_path(@post.id) %>
+            <%= link_to "編集する", edit_post_path(@post.id), class:"link-color" %>
           <% else %>
           <% end %>
     </div>
@@ -61,7 +61,7 @@
       <% @post.comments.each do |comment| %>
         <p>
           <%= image_tag comment.user.get_profile_image(80,80) %>
-          <%= link_to comment.user.name, user_path(comment.user.id) %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
+          <%= link_to comment.user.name, user_path(comment.user.id), class:"link-color name-size" %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
         </p>
         <div class="comment-text">
           <%= comment.comment_text %>

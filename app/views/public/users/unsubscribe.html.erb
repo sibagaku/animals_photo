@@ -1,6 +1,5 @@
 <main>
   <%= render "list" %>
-
   <h2 class="title"><strong>退会確認画面</strong></h2>
 
   <p class="danger-text">
@@ -13,5 +12,4 @@
     <%= link_to "退会しない", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5" %>
     <%= link_to "退会する", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom" %>
   </div>
-
 </main>

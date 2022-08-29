@@ -24,6 +24,23 @@
     min-height: 100vh;
 }
 
+ .before_login_header {
+    height:160px;
+    text-align: center;
+    border-bottom: 2px solid #82D92B;
+ }
+
+ .header {
+    border-bottom: 2px solid #82D92B;
+    display: flex;
+    width: 100%;
+    z-index: 10;
+ }
+
+ .header-list {
+    margin: auto 0;
+ }
+
 .n-circle {
     position: absolute;
     padding-left: 20px;
@@ -35,7 +52,115 @@
   border-radius: 50%;
 }
 
+.menu {
+  list-style: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 0;
+  margin-top: 102px;
+  padding: 0 0 10px 0;
+  clear: both;
+  background-color: #F2EFEB;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+  z-index: 10;
+}
 
+/* Hamburger menu button */
+.menu-btn:checked ~ .menu {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+  top: 0;
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  bottom: 0;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon {
+  background: rgba(0, 0, 0, 0);
+  transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+/* Hamburger menbu text */
+.menu a {
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #6DA644;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu li {
+  border-top: 1px solid #6DA644;
+  padding: 15px 0;
+  margin: 0 54px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu-btn:checked ~ .menu a,
+.menu-btn:checked ~ .menu li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.navicon {
+  background: #6DA644;
+  display: block;
+  height: 3px;
+  width: 26px;
+  position: relative;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  padding: 3px 0;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: #6DA644;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.navicon:before {
+  top: 9px;
+}
+
+.navicon:after {
+  bottom: 9px;
+}
+
+/* Hamburger Menu Animation Start */
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
 
  .side-left {
     background-image: url("22582227.jpg");
@@ -48,17 +173,6 @@
  main {
     width: 70%;
     background-color: #FFF;
-
- }
-
- .before_login_header {
-    height:160px;
-    text-align: center;
-    border-bottom: 2px solid #82D92B;
- }
-
- .login_header {
-    border-bottom: 2px solid #82D92B;
  }
 
  .fa-regular {
@@ -72,6 +186,10 @@
 
  .top-btn-custom {
     width: 75%;
+ }
+
+ .ddd {
+    margin-top: 150px;
  }
 
  .top-btn-text {
@@ -125,6 +243,11 @@
 
  .danger-text {
     text-align: center;
+ }
+
+ .mypage-profile-img {
+     position: absolute;
+     z-index: 0
  }
 
  .show-user-name {
@@ -194,16 +317,26 @@
 }
 
 .pagination {
-    margin: 15px 0 20px;
+    margin: 15px 0 15px;
     justify-content: center;
+}
+
+.pagination a {
+    color: black;
 }
 
 .page {
     margin: 0 5px 0;
+    padding: 0 8px;
+    border-radius: 50%;
+    background-color: #FCC900;
 }
 
 .next, .last, .first, .prev {
     margin: 0 3px 0;
+    padding: 0 8px;
+    border-radius: 50%;
+    background-color: #FCC900;
 }
 
 .title {
@@ -241,7 +374,7 @@
 
 .post-show-text {
     margin: 0 85px 0;
-    border: 1px solid black;
+    border: 1px solid #82D92B;
     border-radius: 10px;
     padding: 10px 20px;
 }
@@ -255,7 +388,7 @@
 }
 
 .comment-text {
-    border: 1px solid black;
+    border: 1px solid #82D92B;
     border-radius: 10px;
     margin: 0 0 0 80px;
     padding: 10px;
@@ -296,15 +429,18 @@
     padding: 10px;
     margin-right: 4%;
     margin-bottom: 3%;
-    position: relative;
 }
 
 .post-index-list:nth-child(even) {
     margin-right:  0;
 }
 
-.post-index-list:nth-last-child(-n+2) {
+.post-index-list:nth-last-child {
     margin-bottom:  0;
+}
+
+.index-page {
+    margin-bottom: 40px;
 }
 
 .post-index-image {
@@ -322,9 +458,7 @@
 }
 
 .post-favorite {
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
+    margin: auto 0 0 auto;
 }
 
 .post-delete {
@@ -403,6 +537,10 @@
 
 .link-color {
     color: #6DA644;
+}
+
+.name-size {
+    font-size: 20px;
 }
 
 .notification-delete {
