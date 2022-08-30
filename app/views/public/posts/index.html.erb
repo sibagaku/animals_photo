@@ -19,7 +19,7 @@
   <div class="post-index-box">
   <div class="post-index-content">
   <% @posts.each do |post| %>
-    <div class="post-index-list">
+    <div class="post-index-list gradient-post-index">
       <div>
         <%= link_to post_path(post.id) do %>
           <%= image_tag post.image, class:"post-index-image" %>
@@ -30,7 +30,7 @@
           <%= image_tag post.user.get_profile_image(80,80) %>
         </div>
         <div class="post-index-info">
-          <%= link_to post.user.name, post_path(post.id), class:"link-color" %><br>
+          <strong><%= link_to post.user.name, post_path(post.id), class:"link-color" %></strong><br>
           <%= post.created_at.strftime("%Y/%m/%d") %>
         </div>
         <div class="post-favorite">

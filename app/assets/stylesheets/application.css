@@ -21,7 +21,8 @@
 
 .main-content {
     display: flex;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
+    padding-bottom: 100px;
 }
 
  .before_login_header {
@@ -52,6 +53,16 @@
   border-radius: 50%;
 }
 
+.gradient {
+  width: 100%;
+  background: linear-gradient(0deg, #B1F250 0%, #F2EFEB 100%);
+}
+
+.gradient-post-index {
+  width: 100%;
+  background: linear-gradient(180deg, #C8F288 0%, #F2EFEB 100%);
+}
+
 .menu {
   list-style: none;
   position: absolute;
@@ -61,7 +72,7 @@
   margin-top: 102px;
   padding: 0 0 10px 0;
   clear: both;
-  background-color: #F2EFEB;
+  background: linear-gradient(45deg, #B1F250 0%, #F2EFEB 100%);
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
@@ -247,7 +258,7 @@
 
  .mypage-profile-img {
      position: absolute;
-     z-index: 0
+     z-index: 0;
  }
 
  .show-user-name {
@@ -400,7 +411,7 @@
 }
 
 .post-index-top {
-    width: 80%;
+    width: 100%;
     margin: 30px auto;
 }
 
@@ -413,8 +424,7 @@
 }
 
 .post-index-box {
-    width: 80%;
-    margin: 0 auto 0;
+    width: 100%;
 }
 
 .post-index-content {
@@ -423,15 +433,15 @@
 }
 
 .post-index-list {
-    width:48%;
+    width:32%;
     border: 2px solid #6DA644;
     background-color: #F2EFEB;
     padding: 10px;
-    margin-right: 4%;
+    margin-right: 2%;
     margin-bottom: 3%;
 }
 
-.post-index-list:nth-child(even) {
+.post-index-list:nth-child(3n) {
     margin-right:  0;
 }
 
@@ -455,6 +465,10 @@
 
 .post-index-info {
     margin-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .post-favorite {
@@ -522,7 +536,11 @@
 
 .user-index-namecustom {
     font-size: 25px;
-    color: #6DA644;
+    text-align: center;
+    line-height: 0.95em;
+    font-weight: bold;
+    color: #127369;
+    text-shadow: 2px 2px 3px #999;
 }
 
 .follow-title {
@@ -531,7 +549,12 @@
 }
 
 .notification-index {
-    width: 70%;
+    width: 80%;
+    margin: 30px auto 0;
+}
+
+.unnotification-index {
+    width: 80%;
     margin: 30px auto 0;
 }
 
@@ -579,6 +602,9 @@
 .admin-index-list {
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid #82D92B;
+    background-color: #C8F288;
+    padding: 10px;
 }
 
 .admin-index-user {
@@ -665,14 +691,25 @@
     margin: 30px auto;
 }
 
+.error-text {
+    width: 60%;
+    margin: 0 auto;
+    list-style: none;
+    color: red;
+}
+
 .side-right {
     transform: scale(-1, 1);
     background-image: url("22582227.jpg");
     background-position: center;
     background-size: contain;
     width:15%;
-    height: auto;
+    min-height: 100vh;
  }
+
+body {
+    position: relative;
+}
 
 footer {
     width: 100%;
@@ -680,6 +717,8 @@ footer {
     background-image: url("footer.png");
     background-size: auto;
     background-position: bottom;
+    position: absolute;
+    bottom: 0;
 }
 
  .footer-text {

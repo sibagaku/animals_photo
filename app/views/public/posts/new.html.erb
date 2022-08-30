@@ -1,6 +1,19 @@
 <main>
 
-    <%= render "public/users/list" %>
+  <%= render "public/users/list" %>
+
+  <% if @post.errors.any? %>
+    <div class="error-text mt-4">
+    <%= @post.errors.count %>件のエラーが発生しました
+    </div>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <div class="error-text">
+        <li><%= message %></li>
+      </div>
+      <% end %>
+    </ul>
+  <% end %>
 
   <h2 class="title"><strong>新規投稿画面</strong></h2>
 
@@ -12,7 +25,7 @@
     <div class="form-image", id="new-image"></div>
     <div class="field">
       <strong><%= f.label :説明文： %></strong><br>
-      <%= f.text_area :introduction, class:"form-control", rows:"4" %>
+      <%= f.text_area :introduction, class:"form-control", rows:"4", placeholder: "200文字以内" %>
     </div>
     <div class="actions">
       <%= f.submit"写真を投稿する", class:"btn btn-success btn-custom" %>

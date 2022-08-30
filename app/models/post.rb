@@ -6,6 +6,9 @@ class Post < ApplicationRecord
     has_many :notifications, dependent: :destroy
 
     has_one_attached :image
+    
+    validates :image, presence: true
+    validates :introduction, presence: true, length: { maximum: 200 }
 
     def favorited_by?(user)
         favorites.exists?(user_id: user.id)

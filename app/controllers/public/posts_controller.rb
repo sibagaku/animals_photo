@@ -7,20 +7,23 @@ class Public::PostsController < ApplicationController
     def create
       @post = Post.new(post_params)
       @post.user_id = current_user.id
-      @post.save
-      redirect_to post_path(@post.id)
+      if @post.save
+        redirect_to post_path(@post.id)
+      else
+        render :new
+      end
     end
 
     def index
       if params[:introduction] == nil
         @post_all = Post.all
-        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc)
       elsif params[:introduction] == ""
         @post_all = Post.all
-        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc)
       else
         @post_all = Post.where("introduction LIKE ?", "%#{params[:introduction]}%")
-        @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc).where("introduction LIKE ?", "%#{params[:introduction]}%")
+        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc).where("introduction LIKE ?", "%#{params[:introduction]}%")
       end
     end
 
@@ -36,8 +39,11 @@ class Public::PostsController < ApplicationController
 
     def update
       @post = Post.find(params[:id])
-      @post.update(post_params)
-      redirect_to post_path(@post.id)
+      if @post.update(post_params)
+        redirect_to post_path(@post.id)
+      else
+        render :edit
+      end
     end
 
     def destroy
