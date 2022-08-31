@@ -1,5 +1,9 @@
 class Public::UsersController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
+
+
 
   def index
     if params[:name].present?
@@ -12,6 +16,12 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(9)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def edit
@@ -54,12 +64,24 @@ class Public::UsersController < ApplicationController
   end
 
   def bookmark
-    @favorites = Favorite.where(user_id: current_user.id)
+    @favorites = Favorite.where(user_id: current_user.id).page(params[:page]).per(9)
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   private
 
   def user_params
     params.require(:user).permit(:profile_image, :name, :self_introduction)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to user_path(current_user.id) unless @user == current_user
   end
 end

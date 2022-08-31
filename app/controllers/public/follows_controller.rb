@@ -1,4 +1,7 @@
 class Public::FollowsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def create #フォローするとき
     current_user.follow(params[:user_id])
     user = User.find(params[:user_id])

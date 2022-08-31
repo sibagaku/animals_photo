@@ -26,7 +26,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
-get "users/bookmark/:id" => "public/users#bookmark", as:"bookmark" #ユーザーいいね一覧
+get "users/bookmark/:id" => "public/users#bookmark", as:"bookmark" #ユーザーいいねした写真一覧
 get "users/search" => "public/users#search", as:"search" #ユーザー検索画面
 
 scope module: :public do

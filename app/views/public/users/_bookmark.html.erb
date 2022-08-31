@@ -8,6 +8,7 @@
       </div>
     <% end %>
   </div>
+  <%= paginate @favorites, remote: true %>
 <% else %>
   <p>まだいいねした投稿はありません</p>
 <% end %>

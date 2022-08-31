@@ -8,7 +8,7 @@
       </div>
     <% end %>
   </div>
-  <%= paginate @posts %>
+  <%= paginate @posts, remote: true %>
 <% else %>
   <p>投稿した写真はありません</p>
 <% end %>
