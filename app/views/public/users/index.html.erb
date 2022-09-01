@@ -11,7 +11,7 @@
         <% @users.each do |user| %>
           <div class="user-index-card gradient">
             <div class="user-index-img">
-              <%= image_tag user.get_profile_image(100,100) %>
+              <%= image_tag user.profile_image, class:"user-index-imgcustom" %>
             </div>
             <div class="user-index-name">
               <%= link_to user_path(user.id), class:"user-index-namecustom" do %>
@@ -27,5 +27,4 @@
       </div>
     <% end %>
   </div>
-
 </main>

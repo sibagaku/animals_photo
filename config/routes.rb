@@ -16,7 +16,7 @@ patch "users/:id/withdral" => "public/users#withdral", as:"withdral"
 
 
 #会員用
-devise_for :users,skip: [:passwords], controllers: {
+devise_for :users, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
