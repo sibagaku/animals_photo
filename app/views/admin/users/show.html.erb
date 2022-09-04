@@ -1,41 +1,47 @@
 <main>
 
-<%= render "list" %>
+  <%= render "list" %>
 
-<div class="admin-show-info">
-  <div class="admin-show-profile-image">
-    <%= image_tag @user.get_profile_image(200,200) %>
-  </div>
-  <div class="admin-show-profile">
-    <div class="admin-show-name">
-      <strong><%= @user.name %></strong><br>
+  <div class="admin-show-info">
+    <div class="admin-show-profile-image">
+      <%= image_tag @user.get_profile_image(200,200) %>
     </div>
-    User_ID : <%= @user.id %><br>
-    <% if @user.is_deleted == false %>
-      <strong class="admin-index-false admin-show-deleted">有効</strong>
-    <% else %>
-      <strong class="admin-index-true admin-show-deleted">退会</strong>
-    <% end %>
-  </div>
-</div>
-<div class="admin-show-introduction">
-  <%= @user.self_introduction %>
-</div>
-<div class="actions">
-  <%= link_to "ユーザーの編集", edit_admin_user_path(@user.id), class:"btn btn-success btn-custom" %>
-</div>
-
-<div class="admin-show-box">
-  <div class="admin-show-list">
-    <% @posts.each do |post| %>
-      <div class="my-image-link">
-        <%= image_tag post.image, class:"my-image" %>
+    <div class="admin-show-profile">
+      <div class="admin-show-name">
+        <strong><%= @user.name %></strong><br>
       </div>
-    <% end %>
+      User_ID : <%= @user.id %><br>
+      <% if @user.is_deleted == false %>
+        <strong class="admin-index-false admin-show-deleted">有効</strong>
+      <% else %>
+        <strong class="is-deleted-true admin-show-deleted">退会</strong>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= paginate @posts %>
-  </div>
-</div>
+  <% if @user.self_introduction == "" or @user.self_introduction == nil  %>
+    <div class="admin-show-introduction">
+      ※自己紹介文はありません
+    </div>
+  <% else %>
+    <div class="admin-show-introduction">
+      <%= @user.self_introduction %>
+    </div>
+  <% end %>
 
+  <div class="actions">
+    <%= link_to "ユーザーの編集", edit_admin_user_path(@user.id), class:"btn btn-success btn-custom" %>
+  </div>
+
+  <div class="admin-show-box gradient">
+    <div class="admin-show-list">
+      <% @posts.each do |post| %>
+        <div class="user-image-link">
+          <%= image_tag post.image, class:"user-image" %>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <%= paginate @posts %>
+    </div>
+  </div>
 </main>

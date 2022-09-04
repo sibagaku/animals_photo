@@ -18,15 +18,16 @@ class Public::PostsController < ApplicationController
     end
 
     def index
+      @user
       if params[:introduction] == nil
-        @post_all = Post.all
-        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc)
+        @post_all = Post.joins(:user).where(users:{is_deleted: false})
+        @posts = Post.joins(:user).where(users:{is_deleted: false}).page(params[:page]).per(9).order(created_at: :desc)
       elsif params[:introduction] == ""
-        @post_all = Post.all
-        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc)
+        @post_all = Post.joins(:user).where(users:{is_deleted: false})
+        @posts = Post.joins(:user).where(users:{is_deleted: false}).page(params[:page]).per(9).order(created_at: :desc)
       else
-        @post_all = Post.where("introduction LIKE ?", "%#{params[:introduction]}%")
-        @posts = Post.all.page(params[:page]).per(9).order(created_at: :desc).where("introduction LIKE ?", "%#{params[:introduction]}%")
+        @post_all = Post.joins(:user).where(users:{is_deleted: false}).where("introduction LIKE ?", "%#{params[:introduction]}%")
+        @posts = Post.joins(:user).where(users:{is_deleted: false}).page(params[:page]).per(9).order(created_at: :desc).where("introduction LIKE ?", "%#{params[:introduction]}%")
       end
     end
 

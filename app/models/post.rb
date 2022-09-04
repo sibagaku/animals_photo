@@ -6,14 +6,16 @@ class Post < ApplicationRecord
     has_many :notifications, dependent: :destroy
 
     has_one_attached :image
-    
+
     validates :image, presence: true
     validates :introduction, presence: true, length: { maximum: 200 }
 
+    # いいねしているかの判断
     def favorited_by?(user)
         favorites.exists?(user_id: user.id)
     end
-    
+
+    # いいね通知
     def create_notification_favorite!(current_user)
         #すでにいいねされているかの確認
         temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, "favorite"])
@@ -27,7 +29,8 @@ class Post < ApplicationRecord
             notification.save if notification.valid?
         end
     end
-    
+
+    # コメント通知
     def create_notification_comment!(current_user, comment_id)
         #自分以外にコメントしている人をすべて取得し、全員に通知を送る
         temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
@@ -37,7 +40,7 @@ class Post < ApplicationRecord
         #まだ誰もコメントしていない場合は、投稿者に通知を送る
         save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
     end
-    
+
     def save_notification_comment!(current_user, comment_id, visited_id)
         #１つの投稿に対して複数回のコメントをする可能性もある
         notification = current_user.active_notifications.new(

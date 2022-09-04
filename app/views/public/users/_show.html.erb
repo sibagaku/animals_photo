@@ -1,9 +1,9 @@
 <% if @posts.count >= 1 %>
-  <div class="my-image-list">
+  <div class="user-image-list">
     <% @posts.each do |post| %>
-      <div class="my-image-link">
+      <div class="user-image-link">
         <%= link_to post_path(post.id) do %>
-          <%= image_tag post.image, class:"my-image" %>
+          <%= image_tag post.image, class:"user-image" %>
         <% end %>
       </div>
     <% end %>

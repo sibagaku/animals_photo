@@ -210,3 +210,8 @@ ja:
       last: "最後"
       previous: "前"
       next: "次"
+  activerecord:
+    attribute:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"

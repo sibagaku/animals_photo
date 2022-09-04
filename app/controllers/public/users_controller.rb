@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
 
   def index
     if params[:name].present?
-      @users = User.where('name LIKE ?', "%#{params[:name]}%").where.not(id: current_user.id)
+      @users = User.where('name LIKE ?', "%#{params[:name]}%").where.not(id: current_user.id).and(User.deleted_true)
     else
       @users = User.none
     end
@@ -48,24 +48,11 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def follow
-    @user = User.find(params[:id])
-    @users = @user.followings.page(params[:page]).per(10)
-  end
-
-  def follower
-    @user = User.find(params[:id])
-    @users = @user.follow.page(params[:page]).per(10)
-  end
-
-
   def search
-
   end
 
   def bookmark
-    @favorites = Favorite.where(user_id: current_user.id).page(params[:page]).per(9)
-    @user = User.find(params[:id])
+    @favorites = Favorite.deleted_true.where(user_id: current_user.id).page(params[:page]).per(9)
 
     respond_to do |format|
       format.html

@@ -16,12 +16,12 @@ class Public::FollowsController < ApplicationController
 
   def followings #フォロー一覧
     @user = User.find(params[:user_id])
-    @users = @user.followings.page(params[:page]).per(10)
+    @users = @user.followings.page(params[:page]).per(10).deleted_true
   end
 
   def followers #フォロワー一覧
     @user = User.find(params[:user_id])
-    @users = @user.followers.page(params[:page]).per(10)
+    @users = @user.followers.page(params[:page]).per(10).deleted_true
   end
 
 end

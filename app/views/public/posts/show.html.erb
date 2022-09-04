@@ -13,9 +13,9 @@
         <% if @user != current_user %>
           <div class="ml-auto my-auto">
             <% if current_user.following?(@user) %>
-              <%= link_to "フォローを外す", user_follows_path(@user.id), method: :delete, class:"btn btn-success show-user-btn btn-lg" %>
+              <%= link_to "フォローを外す", user_follows_path(@user.id), method: :delete, class:"btn btn-success user-show-btn btn-lg" %>
             <% else %>
-              <%= link_to "フォローする", user_follows_path(@user.id), method: :post, class:"btn btn-success show-user-btn btn-lg" %>
+              <%= link_to "フォローする", user_follows_path(@user.id), method: :post, class:"btn btn-success user-show-btn btn-lg" %>
             <% end %>
           </div>
         <% else %>
@@ -59,10 +59,10 @@
     <div class="comment-list">
       <p><i class="fa-solid fa-comment link-color"></i> コメント件数：<%= @post.comments.count %>件</p>
       <% @post.comments.each do |comment| %>
-        <p>
+        <div>
           <%= image_tag comment.user.get_profile_image(80,80) %>
           <%= link_to comment.user.name, user_path(comment.user.id), class:"link-color name-size" %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
-        </p>
+        </div>
         <div class="comment-text">
           <%= comment.comment_text %>
         </div>
@@ -73,10 +73,5 @@
         </div>
       <% end %>
     </div>
-
-
-
   </div>
-
-
 </main>

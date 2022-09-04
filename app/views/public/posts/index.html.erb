@@ -27,7 +27,7 @@
       </div>
       <div class="post-index-user">
         <div class="my-auto">
-          <%= image_tag post.user.get_profile_image(80,80) %>
+          <%= image_tag post.user.profile_image, class:"user-profile-imgcustom" %>
         </div>
         <div class="post-index-info">
           <strong><%= link_to post.user.name, post_path(post.id), class:"link-color" %></strong><br>

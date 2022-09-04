@@ -8,17 +8,14 @@
     <strong><%= f.label :プロフィール画像： %></strong><br>
     <%= f.file_field :profile_image %>
   </div>
-
   <div class="field">
     <strong><%= f.label :ニックネーム： %></strong><br>
     <%= f.text_field :name ,class:"form-control" %>
   </div>
-
   <div class="field">
     <strong><%= f.label :自己紹介文： %></strong><br>
     <%= f.text_area :self_introduction, class:"form-control", rows:"5" %>
   </div>
-
   <div class="field">
     <%= f.radio_button :is_deleted, "false" %>
     <%= f.label :is_deleted, "：有効" %><br>
@@ -26,11 +23,9 @@
     <%= f.radio_button :is_deleted, "true" %>
     <%= f.label :is_deleted, "：退会" %>
   </div>
-
   <div class="actions">
     <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
   </div>
-
   <% end %>
 
 </main>

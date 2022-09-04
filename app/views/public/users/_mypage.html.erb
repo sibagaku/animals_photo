@@ -1,6 +1,6 @@
 <div>
     <div class="row mt-4">
-      <div class="col-3 mypage-profile-img">
+      <div class="col-3 user-profile-img">
         <%= image_tag user.get_profile_image(170,170) %>
       </div>
       <div class="col-6">
@@ -13,8 +13,8 @@
           </div>
           <div class="col-12 mt-2">
             <p>
-              フォロー：<strong><%= link_to user.followings.count.to_s + "人", user_followings_path(user.id), class:"link-color" %></strong>
-              　フォロワー：<strong><%= link_to user.followers.count.to_s + "人", user_followers_path(user.id), class:"link-color" %></strong>
+              フォロー：<strong><%= link_to user.following_users.count.to_s + "人", user_followings_path(user.id), class:"link-color" %></strong>
+              　フォロワー：<strong><%= link_to user.follower_users.count.to_s + "人", user_followers_path(user.id), class:"link-color" %></strong>
             </p>
           </div>
         </div>

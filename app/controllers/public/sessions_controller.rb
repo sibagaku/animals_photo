@@ -5,6 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :user_state, only:[:create]
 
+  # ゲストログイン
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -38,6 +39,7 @@ class Public::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :encrypted_password])
   end
 
+  # 退会済みのユーザーアカウントからのログインを禁止する
   def user_state
     @user = User.find_by(email: params[:user][:email])
     return if !@user

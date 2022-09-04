@@ -3,13 +3,13 @@
 
   <% if @post.errors.any? %>
     <div class="error-text mt-4">
-    <%= @post.errors.count %>件のエラーが発生しました
+      <%= @post.errors.count %>件のエラーが発生しました
     </div>
     <ul>
       <% @post.errors.full_messages.each do |message| %>
-      <div class="error-text">
-        <li><%= message %></li>
-      </div>
+        <div class="error-text">
+          <li><%= message %></li>
+        </div>
       <% end %>
     </ul>
   <% end %>
@@ -30,7 +30,6 @@
       <%= f.submit"変更を保存する", class:"btn btn-success btn-custom" %>
     </div>
   <% end %>
-
   <div class="post-delete">
     <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, class:"btn btn-danger", data: {confirm: "投稿を削除しますか？"} %>
   </div>

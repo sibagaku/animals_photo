@@ -46,6 +46,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  # ゲストログイン
   def self.guest
     find_or_create_by!(email: "guest@guest") do |user|
       user.password =SecureRandom.urlsafe_base64
@@ -53,6 +54,7 @@ class User < ApplicationRecord
     end
   end
 
+  # フォロー通知
   def create_notification_follow!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, "follow"])
     if temp.blank?
@@ -63,5 +65,19 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  #退会しているユーザー
+  scope :deleted_true, -> { where.not(is_deleted: true) }
+
+  #フォローしているユーザー（退会済みは除外する）
+  def following_users
+    followings.where(is_deleted: false)
+  end
+  
+  #フォローされているユーザー（退会済みは除外する）
+  def follower_users
+    followers.where(is_deleted: false)
+  end
+
 
 end
