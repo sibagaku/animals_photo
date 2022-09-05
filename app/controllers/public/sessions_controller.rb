@@ -41,9 +41,10 @@ class Public::SessionsController < Devise::SessionsController
 
   # 退会済みのユーザーアカウントからのログインを禁止する
   def user_state
-    @user = User.find_by(email: params[:user][:email])
+#@user = User.find_by(email: params[:user][:email])
+    @user = User.where('lower(email) = ?', params[:user][:email].downcase).first
     return if !@user
-    if @user.valid_password?(params[:user][:password]) && @user.is_deleted == true
+    if (@user.valid_password?(params[:user][:password])) && (@user.is_deleted == true)
       redirect_to root_path
     else
 
