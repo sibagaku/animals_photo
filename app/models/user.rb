@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :password, length: { minimum: 6 }, on: :create
+  validates :email, uniqueness: true
 
   def get_profile_image(width,height)
     unless profile_image.attached?
@@ -73,7 +74,7 @@ class User < ApplicationRecord
   def following_users
     followings.where(is_deleted: false)
   end
-  
+
   #フォローされているユーザー（退会済みは除外する）
   def follower_users
     followers.where(is_deleted: false)

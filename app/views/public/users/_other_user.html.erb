@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <% if user.self_introduction %>
+  <% if user.self_introduction != "" %>
     <div class="row mt-2">
       <div class="col-8 mx-auto user-show-introduction">
         <%= user.self_introduction %>
