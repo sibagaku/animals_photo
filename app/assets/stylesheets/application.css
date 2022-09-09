@@ -180,7 +180,7 @@
 }
 
  .side-left {
-    background-image: url("22582227.jpg");
+    background-image: image-url("22582227.jpg");
     background-position: center;
     background-size: contain;
     width:15%;
@@ -721,7 +721,7 @@
 
 .side-right {
     transform: scale(-1, 1);
-    background-image: url("22582227.jpg");
+    background-image: image-url("22582227.jpg");
     background-position: center;
     background-size: contain;
     width:15%;
@@ -732,7 +732,7 @@ footer {
     width: 100%;
     padding: 30px 0;
     margin-top: auto;
-    background-image: url("footer.png");
+    background-image: image-url("footer.png");
     background-size: auto;
     background-position: bottom;
 }
