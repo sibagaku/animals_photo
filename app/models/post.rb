@@ -38,7 +38,7 @@ class Post < ApplicationRecord
             save_notification_comment!(current_user, comment_id, temp_id["user_id"])
         end
         #まだ誰もコメントしていない場合は、投稿者に通知を送る
-        save_notification_comment!(current_user, comment_id, user_id).where.not(notification.visited_id == notification.visitor_id) if temp_ids.blank?
+        save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
     end
 
     def save_notification_comment!(current_user, comment_id, visited_id)
