@@ -29,16 +29,16 @@
   </div>
 
   <% if user.self_introduction == ""  %>
-      <div class="row mt-4"></div>
-    <% elsif user.self_introduction == nil %>
-      <div class="row mt-4"></div>
-    <% else %>
-      <div class="row mt-2">
-        <div class="col-8 mx-auto user-show-introduction">
-          <%= user.self_introduction %>
-        </div>
+    <div class="row mt-4"></div>
+  <% elsif user.self_introduction == nil %>
+    <div class="row mt-4"></div>
+  <% else %>
+    <div class="row mt-2">
+      <div class="col-8 mx-auto user-show-introduction">
+        <%= user.self_introduction %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
   <div class="tab-menu">
     <div class="tab-content">
