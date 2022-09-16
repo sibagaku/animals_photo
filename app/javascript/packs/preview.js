@@ -14,7 +14,7 @@ if (document.URL.match(/new/)){
 
     document.getElementById('post_image').addEventListener('change', (e) =>{
 
-      const imageContent = document.querySelector('#post-image > img');
+      const imageContent = document.querySelector('#new-image > img');
       if (imageContent){
         imageContent.remove();
       }
@@ -42,7 +42,7 @@ if (document.URL.match(/edit/)){
 
     document.getElementById('post_image').addEventListener('change', (e) =>{
 
-      const imageContent = document.querySelector('#post-image > img');
+      const imageContent = document.querySelector('#new-image > img');
       if (imageContent){
         imageContent.remove();
       }

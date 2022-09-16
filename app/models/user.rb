@@ -68,7 +68,7 @@ class User < ApplicationRecord
   end
 
   #退会しているユーザー
-  scope :deleted_true, -> { where.not(is_deleted: true) }
+  scope :active, -> { where.not(is_deleted: true) }
 
   #フォローしているユーザー（退会済みは除外する）
   def following_users

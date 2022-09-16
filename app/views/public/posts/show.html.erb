@@ -1,6 +1,19 @@
 <main>
   <%= render "public/users/list" %>
 
+  <% if @post_comment.errors.any? %>
+    <div class="error-text mt-4">
+    <%= @post_comment.errors.count %>件のエラーが発生しました
+    </div>
+    <ul>
+      <% @post_comment.errors.full_messages.each do |message| %>
+      <div class="error-text">
+        <li><%= message %></li>
+      </div>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="container">
     <div class="row post-show">
         <div class="my-auto">

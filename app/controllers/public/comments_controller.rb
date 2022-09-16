@@ -10,7 +10,10 @@ class Public::CommentsController < ApplicationController
       post.create_notification_comment!(current_user, comment.id)
       redirect_to post_path(post)
     else
-      render :show
+      @post = Post.find(params[:post_id])
+      @post_comment = comment
+      @user = @post.user
+      render template: "public/posts/show"
     end
   end
 

@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
 
   def index
     if params[:name].present?
-      @users = User.where('name LIKE ?', "%#{params[:name]}%").where.not(id: current_user.id).and(User.deleted_true)
+      @users = User.where('name LIKE ?', "%#{params[:name]}%").where.not(id: current_user.id).and(User.active)
     else
       @users = User.none
     end
@@ -38,7 +38,7 @@ class Public::UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def withdral
@@ -52,7 +52,7 @@ class Public::UsersController < ApplicationController
   end
 
   def bookmark
-    @favorites = Favorite.deleted_true.where(user_id: current_user.id).page(params[:page]).per(9)
+    @favorites = Favorite.active.where(user_id: current_user.id).page(params[:page]).per(9)
 
     respond_to do |format|
       format.html

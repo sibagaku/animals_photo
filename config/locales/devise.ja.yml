@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "ニックネーム"
+  errors:
+    messages:
+      not_saved: "下記のエラーにより登録ができませんでした。"
+    

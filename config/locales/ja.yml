@@ -211,7 +211,9 @@ ja:
       previous: "前"
       next: "次"
   activerecord:
-    attribute:
-      user:
-        email: "メールアドレス"
-        password: "パスワード"
+    attributes:
+      comment:
+        comment_text: "コメント"
+      post:
+        introduction: "説明文"
+        image: "投稿写真"

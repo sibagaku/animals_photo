@@ -18,10 +18,10 @@
   </div>
   <div class="field">
     <%= f.radio_button :is_deleted, "false" %>
-    <%= f.label :is_deleted, "：有効" %><br>
+    <%= f.label :is_deleted, "：有効", value: false %><br>
 
     <%= f.radio_button :is_deleted, "true" %>
-    <%= f.label :is_deleted, "：退会" %>
+    <%= f.label :is_deleted, "：退会", value: true %>
   </div>
   <div class="actions">
     <%= f.submit "変　更", class:"btn btn-success btn-custom" %>

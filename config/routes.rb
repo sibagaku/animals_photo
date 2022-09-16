@@ -9,10 +9,10 @@ devise_scope :user do
 end
 
 #会員の退会確認画面
-get "users/unsubscribe/:id" => "public/users#unsubscribe", as:"unsubscribe"
+get "users/unsubscribe" => "public/users#unsubscribe", as:"unsubscribe"
 
 #会員の退会処理（退会ステータスの更新）
-patch "users/:id/withdral" => "public/users#withdral", as:"withdral"
+patch "users/withdral" => "public/users#withdral", as:"withdral"
 
 
 #会員用

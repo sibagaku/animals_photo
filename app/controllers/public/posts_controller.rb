@@ -35,6 +35,7 @@ class Public::PostsController < ApplicationController
       @post = Post.find(params[:id])
       @user = @post.user
       @post_comment = Comment.new
+
     end
 
     def edit
