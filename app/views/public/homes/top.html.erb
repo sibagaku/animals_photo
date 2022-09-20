@@ -23,22 +23,34 @@
            <p class="top-btn-text">(お試しの方はこちらから)</p>
           <% end %>
         </div>
-        <div class="top-admin-btn">
-          <%= link_to new_admin_session_path, class:"btn btn-success top-btn-custom top-admin-btn" do %>
-            <h2 class="top-btn-text">Admin</h2><br>
-            <p class="top-btn-text">※こちらは管理者専用です</p>
-          <% end %>
+      </div>
+
+      <div class="col-7 mt-5 px-0">
+        <div id="skippr">
+          <div id="theTarget">
+            <div class="image1"></div>
+            <div class="image2"></div>
+            <div class="image3"></div>
+            <div class="image4"></div>
+          </div>
         </div>
       </div>
-      <div class="col-7 mt-5 px-0">
-        <%= image_tag "noogata-pakuPAR546192712_TP_V.jpg", class:"top-icon" %>
-        <p class="mt-4 top-text">
+
+      <div class="col-5 mt-auto top-btn pl-0">
+        <%= link_to new_admin_session_path, class:"btn btn-success top-btn-custom top-admin-btn" do %>
+          <h2 class="top-btn-text">Admin</h2><br>
+          <p class="top-btn-text">※こちらは管理者専用です</p>
+        <% end %>
+      </div>
+      <div class="col-7 px-0">
+        <p class="top-text mb-0">
           <strong>動物たちの写真を投稿し、かわいい姿やかっこいい姿を,<br>
           みんなでシェアしていきましょう！<br>
           また、好みの写真を見つけて自分だけの<br>
           ブックマークを作っていきましょう！</strong>
         </p>
       </div>
+
     </div>
   </div>
 </main>
