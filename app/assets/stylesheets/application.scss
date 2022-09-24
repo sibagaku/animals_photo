@@ -478,15 +478,15 @@
     padding: 10px 20px;
 }
 
-.comment_input {
+#comment_input {
     margin: 20px 85px 0;
 }
 
-.comment-list {
+#comment_list {
     margin: 20px 85px 0;
 }
 
-.comment-text {
+.comment_text {
     border: 1px solid #82D92B;
     border-radius: 10px;
     margin: 0 0 0 80px;
@@ -494,7 +494,7 @@
     background-color: #C8F288;
 }
 
-.comment-delete {
+.comment_delete {
     text-align: right;
     margin-bottom: 20px;
 }

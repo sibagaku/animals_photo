@@ -1,0 +1,15 @@
+ <p><i class="fa-solid fa-comment link-color"></i> コメント件数：<%= post.comments.count %>件</p>
+  <% post.comments.each do |comment| %>
+    <div>
+      <%= image_tag comment.user.get_profile_image(80,80) %>
+      <%= link_to comment.user.name, user_path(comment.user.id), class:"link-color name-size" %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div class="comment_text">
+      <%= comment.comment_text %>
+    </div>
+    <div class="comment_delete">
+      <% if comment.user == current_user %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true %>
+      <% end %>
+    </div>
+  <% end %>

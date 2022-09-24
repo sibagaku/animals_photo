@@ -38,53 +38,22 @@
       <%= image_tag @post.image, class:"post-show-img"%>
     </div>
     <div class="post_show_content">
-      <% if @post.user_id == current_user.id %>
-        <div><i class="fa-solid fa-thumbs-up favorite-color"></i> <%= @post.favorites.count %>いいね！</div>
-      <% else %>
-        <% if @post.favorited_by?(current_user) %>
-          <%= link_to post_favorites_path(@post), method: :delete do %>
-            <i class="fa-solid fa-thumbs-up favorite-color"></i> <%= @post.favorites.count %>いいね！
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(@post), method: :post do %>
-            <i class="fa-regular fa-thumbs-up unfavorite-color"></i> <%= @post.favorites.count %>いいね
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= render "public/favorites/favorite", post: @post %>
 
-          <% if @user == current_user %>
-            <%= link_to "編集する", edit_post_path(@post.id), class:"link-color" %>
-          <% else %>
-          <% end %>
+      <% if @user == current_user %>
+        <%= link_to "編集する", edit_post_path(@post.id), class:"link-color" %>
+      <% else %>
+      <% end %>
     </div>
     <div class="post-show-text">
       <%= @post.introduction %>
     </div>
 
-    <div class="comment_input">
-      <%= form_with model: [@post,@post_comment] do |f| %>
-        <%= f.text_area :comment_text, rows:"3", class:"form-control", placeholder:"コメントをここに入力してください" %>
-        <div class="text-right">
-          <%= f.submit"送信する" %>
-        </div>
-      <% end %>
+    <div id="comment_input">
+      <%= render "public/comments/form", post: @post, post_comment: @post_comment %>
     </div>
-    <div class="comment-list">
-      <p><i class="fa-solid fa-comment link-color"></i> コメント件数：<%= @post.comments.count %>件</p>
-      <% @post.comments.each do |comment| %>
-        <div>
-          <%= image_tag comment.user.get_profile_image(80,80) %>
-          <%= link_to comment.user.name, user_path(comment.user.id), class:"link-color name-size" %>  <%= comment.created_at.strftime('%Y/%m/%d') %>
-        </div>
-        <div class="comment-text">
-          <%= comment.comment_text %>
-        </div>
-        <div class="comment-delete">
-          <% if comment.user == current_user %>
-            <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-          <% end %>
-        </div>
-      <% end %>
+    <div id="comment_list">
+      <%= render "public/comments/comment_list", post: @post %>
     </div>
   </div>
 </main>
