@@ -10,5 +10,9 @@
   </div>
   <%= paginate @favorites, remote: true %>
 <% else %>
-  <p>まだいいねした投稿はありません</p>
+  <% if I18n.locale.to_s == "ja" %>
+    <p>まだいいねした投稿はありません</p>
+  <% else %>
+    <p>No posts have been liked yet.</p>
+  <% end %>
 <% end %>

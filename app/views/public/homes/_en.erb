@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-5 pl-0 top-btn">
+    <div>
+      <%= link_to new_user_registration_path, class:"btn btn-success mt-5 p-4 top-btn-custom" do %>
+        <h2 class="top-btn-text">Sign_up</h2><br>
+        <p class="top-btn-text">(New registration is here)</p>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to new_user_session_path, class:"btn btn-success mt-4 p-4 top-btn-custom" do %>
+       <h2 class="top-btn-text">Log_in</h2><br>
+       <p class="top-btn-text">(Registered person is here)</p>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to guest_sign_in_path, method: :post, class:"btn btn-warning mt-4 p-4 top-btn-custom" do %>
+       <h2 class="top-btn-text">Guest_login</h2><br>
+       <p class="top-btn-text">(Click here to try it)</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-7 mt-5 px-0">
+    <div id="skippr">
+      <div id="theTarget">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-5 mt-auto top-btn pl-0">
+    <%= link_to new_admin_session_path, class:"btn btn-success top-btn-custom top-admin-btn" do %>
+      <h2 class="top-btn-text">Admin</h2><br>
+      <p class="top-btn-text">※administrators only</p>
+    <% end %>
+  </div>
+  <div class="col-7 px-0">
+    <p class="top-text mb-0">
+      <strong>Post photos of your animals and see how cute or cool they look ,
+      Let's share them together!<br>
+      Also, find a photo you like and make your own bookmark!</strong>
+    </p>
+  </div>
+
+</div>

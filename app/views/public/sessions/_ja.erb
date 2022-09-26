@@ -1,0 +1,19 @@
+<h2 class="login-title">ログイン</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <strong><%= f.label :メールアドレス： %></strong><br />
+      <%= f.email_field :email, class:"form-control" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :パスワード（６文字以上）： %></strong><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Log in", class:"btn btn-success btn-custom" %>
+    </div>
+  <% end %>
+
+  <p class="text-center mt-4">
+    登録がお済でない方は<%= link_to "こちら", new_user_registration_path %>から新規登録をしてください。
+  </p>

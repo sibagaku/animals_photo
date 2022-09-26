@@ -3,3 +3,10 @@
     <%= image_tag "logo.jpg", class:"logo" %>
   <% end %>
 </div>
+<div class="language">
+  <% if I18n.locale.to_s == "en" %>
+    <%= link_to("日本語", { locale: "ja" }, { class:"language_btn" }) %>
+  <% else %>
+    <%= link_to("English", { locale: "en" }, { class:"language_btn" }) %>
+  <% end %>
+</div>

@@ -1,0 +1,58 @@
+<div>
+  <div class="row mt-4">
+    <div class="col-3 user-profile-img">
+      <%= image_tag user.get_profile_image(170,170) %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12 mt-2">
+          <strong class="user-show-name"><%= user.name %></strong> <%= link_to "change", edit_user_path(user.id), class:"link-color" %>
+        </div>
+        <div class="col-12">
+          User_ID：<%= user.id %><br>
+        </div>
+        <div class="col-12 mt-2">
+          <p>
+            follow：<strong><%= link_to user.following_users.count.to_s + "people", user_followings_path(user.id), class:"link-color" %></strong>
+            　follower：<strong><%= link_to user.follower_users.count.to_s + "people", user_followers_path(user.id), class:"link-color" %></strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 my-auto">
+      <%= link_to "Submit a photo", new_post_path, class:"btn btn-success user-show-btn btn-lg" %>
+    </div>
+  </div>
+
+  <% if user.self_introduction == ""  %>
+    <div class="row mt-4"></div>
+  <% elsif user.self_introduction == nil %>
+    <div class="row mt-4"></div>
+  <% else %>
+    <div class="row mt-2">
+      <div class="col-8 mx-auto user-show-introduction">
+        <%= user.self_introduction %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="tab-menu">
+    <div class="tab-content">
+      <%= link_to "Posting List", user_path(current_user), remote: true, class:"tab-btn" %>
+    </div>
+    <div  class="tab-content">
+      <%= link_to "Like List", bookmark_path, remote: true, class:"tab-btn" %>
+    </div>
+  </div>
+  <div class="tab-list gradient">
+    <% if user.present? %>
+      <div class="top_area">
+        <%= render "show" %>
+      </div>
+    <% else %>
+      <div class="top_area">
+        <%= render "bookmark" %>
+      </div>
+    <% end %>
+  </div>
+</div>

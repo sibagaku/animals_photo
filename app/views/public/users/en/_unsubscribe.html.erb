@@ -1,0 +1,11 @@
+<h2 class="title"><strong>Withdrawal Confirmation Screen</strong></h2>
+
+<p class="danger-text">
+  If you cancel your membership,<br>
+  all your previous posts and bookmarks will be deleted.
+</p>
+
+<div class="delete-btn">
+  <%= link_to "Not withdrawal", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5" %>
+  <%= link_to "Withdrawal", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom", data: {confirm: "Are you sure you want to resign your membership?"} %>
+</div>

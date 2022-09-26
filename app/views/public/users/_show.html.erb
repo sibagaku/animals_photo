@@ -10,7 +10,11 @@
   </div>
   <%= paginate @posts, remote: true %>
 <% else %>
-  <p>投稿した写真はありません</p>
+  <% if I18n.locale.to_s == "ja" %>
+    <p>投稿した写真はありません</p>
+  <% else %>
+    <p>No photos posted.</p>
+  <% end %>
 <% end %>
 
 

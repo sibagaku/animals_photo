@@ -2,8 +2,16 @@
   <%= render "list" %>
 
   <% if @user.id == current_user.id %>
-    <%= render "mypage", user: @user %>
+    <% if I18n.locale.to_s == "ja" %>
+      <%= render "public/users/ja/mypage", user: @user %>
+    <% else %>
+      <%= render "public/users/en/mypage", user: @user %>
+    <% end %>
   <% else %>
-    <%= render "other_user", user: @user %>
+    <% if I18n.locale.to_s == "ja" %>
+      <%= render "public/users/ja/other_user", user: @user %>
+    <% else %>
+      <%= render "public/users/en/other_user", user: @user %>
+    <% end %>
   <% end %>
 </main>

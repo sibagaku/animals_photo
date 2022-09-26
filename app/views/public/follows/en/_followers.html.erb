@@ -1,0 +1,23 @@
+<div class="user-index">
+  <div class="follow-title">
+    <strong><%= @user.name %></strong> is followers：<strong class="link-color"><%= @user.follower_users.count %> people</strong>
+  </div>
+
+  <div>
+  <div>
+    <% @users.each do |user| %>
+      <div class="user-index-card gradient">
+        <div class="user-index-img">
+          <%= image_tag user.profile_image, class:"user-profile-imgcustom" %>
+        </div>
+        <div class="user-index-name">
+          <%= link_to user.name, user_path(user.id), class:"user-index-namecustom" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= paginate @users %>
+  </div>
+  </div>
+</div>

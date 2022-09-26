@@ -1,42 +1,9 @@
 <main>
   <%= render "list" %>
 
-  <% if @user.errors.any? %>
-    <div class="error-text mt-4">
-      <%= @user.errors.count %>件のエラーが見つかりました
-    </div>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <div class="error-text">
-        <li><%= message %></li>
-      </div>
-      <% end %>
-    </ul>
+  <% if I18n.locale.to_s == "ja" %>
+    <%= render "public/users/ja/edit" %>
+  <% else %>
+    <%= render "public/users/en/edit" %>
   <% end %>
-
-  <div class="container">
-    <h2 class="title"><strong>会員情報編集画面</strong></h2>
-  
-    <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
-      <div class="field">
-        <strong><%= f.label :プロフィール画像： %></strong><br>
-        <%= f.file_field :profile_image, accept: "image/*" %>
-      </div>
-      <div class="field">
-        <strong><%= f.label :ニックネーム： %></strong><br>
-        <%= f.text_field :name, class:"form-control" %>
-      </div>
-      <div class="field">
-        <strong><%= f.label :自己紹介文： %></strong><br>
-        <%= f.text_area :self_introduction, class:"form-control", rows:"7" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
-      </div>
-    <% end %>
-    
-    <div class="delete-btn">
-      <%= link_to "退　会", unsubscribe_path, class:"btn btn-danger delete-btn-custom" %>
-    </div>
-  </div>
 </main>

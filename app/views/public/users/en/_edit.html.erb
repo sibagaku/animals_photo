@@ -1,0 +1,38 @@
+<% if @user.errors.any? %>
+  <div class="error-text mt-4">
+    <%= @user.errors.count %>errors occurred
+  </div>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <div class="error-text">
+      <li><%= message %></li>
+    </div>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+  <h2 class="title"><strong>Member Information Edit Screen</strong></h2>
+
+  <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+    <div class="field">
+      <strong><%= f.label :"Profile picture：" %></strong><br>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :"Nickname：" %></strong><br>
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :"Self-introduction：" %></strong><br>
+      <%= f.text_area :self_introduction, class:"form-control", rows:"7" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Change", class:"btn btn-success btn-custom" %>
+    </div>
+  <% end %>
+
+  <div class="delete-btn">
+    <%= link_to "Withdrawal", unsubscribe_path, class:"btn btn-danger delete-btn-custom" %>
+  </div>
+</div>

@@ -1,48 +1,10 @@
 <main>
   <%= render "public/users/list" %>
 
-  <div class="post-index-top">
-    <h3 class="my-4">みんなの投稿</h3>
-    <div class="post-index-content">
-      <div>
-        <h3><strong>全<%= @post_all.count %>件</strong></h3>
-      </div>
-      <div class="post-index-form">
-        <%= form_with url: posts_path, method: :get, local: true do |f| %>
-          <%= f.text_field :introduction, class:"post-index-formcustom", placeholder:"キーワードを入れてください" %>
-          <%= f.submit "検索" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="post-index-box">
-  <div class="post-index-content">
-  <% @posts.each do |post| %>
-    <div class="post-index-list gradient-post-index">
-      <div>
-        <%= link_to post_path(post.id) do %>
-          <%= image_tag post.image, class:"post-index-image" %>
-        <% end %>
-      </div>
-      <div class="post-index-user">
-        <div class="my-auto">
-          <%= image_tag post.user.profile_image, class:"user-profile-imgcustom" %>
-        </div>
-        <div class="post-index-info">
-          <strong><%= link_to post.user.name, post_path(post.id), class:"link-color" %></strong><br>
-          <%= post.created_at.strftime("%Y/%m/%d") %>
-        </div>
-        <div class="post-favorite">
-          <i class="fa-solid fa-thumbs-up favorite-color"></i> <%= post.favorites.count %>
-        </div>
-      </div>
-    </div>
+  <% if I18n.locale.to_s == "ja" %>
+    <%= render "public/posts/ja/index" %>
+  <% else %>
+    <%= render "public/posts/en/index" %>
   <% end %>
-  </div>
-  <div class="index-page">
-    <%= paginate @posts %>
-  </div>
-  </div>
 
 </main>

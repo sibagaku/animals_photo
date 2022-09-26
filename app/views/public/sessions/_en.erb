@@ -1,0 +1,19 @@
+<h2 class="login-title">Login</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <strong><%= f.label :Email_Address： %></strong><br />
+      <%= f.email_field :email, class:"form-control" %>
+    </div>
+    <div class="field">
+      <strong><%= f.label :"Password（more than 6 characters）：" %></strong><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Log in", class:"btn btn-success btn-custom" %>
+    </div>
+  <% end %>
+
+  <p class="text-center mt-4">
+    If you are not a registered user,<%= link_to "please click here", new_user_registration_path %> to register as a new user.
+  </p>

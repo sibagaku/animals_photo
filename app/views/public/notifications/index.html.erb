@@ -3,16 +3,33 @@
   <%= render "public/users/list" %>
 
   <div class="notification-delete">
-    <%= link_to "通知を削除する", user_notifications_path(current_user.id), method: :delete, class:"btn btn-danger", data: {confirm: "通知を削除しますか？"} %>
+    <% if I18n.locale.to_s == "ja" %>
+      <%= link_to "通知を削除する", user_notifications_path(current_user.id), method: :delete, class:"btn btn-danger", data: {confirm: "通知を削除しますか？"} %>
+    <% else %>
+      <%= link_to "Delete Notification", user_notifications_path(current_user.id), method: :delete, class:"btn btn-danger", data: {confirm: "Do you want to delete the notification?"} %>
+    <% end %>
+
   </div>
 
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <% if notifications.exists? %>
-    <%= render "notifications", {notifications: @notifications} %>
-    <%= paginate @notifications %>
+  <% if I18n.locale.to_s == "ja" %>
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <%= render "ja", {notifications: @notifications} %>
+      <%= paginate @notifications %>
+    <% else %>
+      <p class="unnotification-index"><strong>・通知はありません</strong></p>
+    <% end %>
   <% else %>
-    <p class="unnotification-index"><strong>・通知はありません</strong></p>
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <%= render "en", {notifications: @notifications} %>
+      <%= paginate @notifications %>
+    <% else %>
+      <p class="unnotification-index"><strong>・No notification</strong></p>
+    <% end %>
   <% end %>
+
+
 
 
 </main>

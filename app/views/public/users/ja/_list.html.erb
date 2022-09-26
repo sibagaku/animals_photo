@@ -1,0 +1,54 @@
+<div class="header-list mr-auto">
+ <input type="checkbox" class="menu-btn" id="menu-btn">
+  <label for="menu-btn" class="menu-icon">
+    <span class="navicon"></span>
+  </label>
+    <ul class="menu">
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to user_path(current_user.id) do %>
+          <i class="fa-solid fa-house"></i> マイページ
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_post_path do %>
+          <i class="fa-solid fa-arrow-up-from-bracket"></i> 新規投稿する
+        <% end %>
+      </li>
+      <li>
+        <%= link_to posts_path do %>
+          <i class="fa-solid fa-share-from-square"></i> みんなの投稿
+        <% end %>
+      </li>
+      <li>
+        <%= link_to search_path do %>
+          <i class="fa-solid fa-users"></i> ユーザー検索
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+</div>
+<div class="header-list mx-auto">
+<%= link_to user_path(current_user.id) do %>
+  <%= image_tag "logo.png", class:"logo" %>
+<% end %>
+</div>
+<div class="header-list ml-auto">
+<% if unchecked_notifications.any? %>
+  <%= link_to user_notifications_path(current_user.id) do %>
+    <span class="fa-stack">
+      <i class="fa-regular fa-envelope"></i>
+      <i class="fa-solid fa-circle n-circle fa-stack-1x"></i>
+    </span>
+  <% end %>
+<% else %>
+  <%= link_to user_notifications_path(current_user.id) do %>
+    <i class="fa-regular fa-envelope"></i>
+  <% end %>
+<% end %>
+</div>

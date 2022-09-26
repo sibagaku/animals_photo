@@ -1,0 +1,29 @@
+<% if post.errors.any? %>
+  <div class="error-text mt-4">
+  <%= post.errors.count %>errors occurred
+  </div>
+  <ul>
+    <% post.errors.full_messages.each do |message| %>
+    <div class="error-text">
+      <li><%= message %></li>
+    </div>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2 class="title"><strong>New Submission Screen</strong></h2>
+
+<%= form_with model: post, url: posts_path, method: :post do |f| %>
+  <div class="field">
+    <strong><%= f.label :"Photos to be submitted：" %></strong><br>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+  <div class="form-image", id="new-image"></div>
+  <div class="field">
+    <strong><%= f.label :"explanatory note：" %></strong><br>
+    <%= f.text_area :introduction, class:"form-control", rows:"4", placeholder: "200 characters or less" %>
+  </div>
+  <div class="actions">
+    <%= f.submit"Submit a photo", class:"btn btn-success btn-custom" %>
+  </div>
+<% end %>

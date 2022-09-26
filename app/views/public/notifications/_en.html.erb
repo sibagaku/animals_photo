@@ -1,0 +1,37 @@
+<div class="notification-index">
+  <div>
+    <% notifications.each do |n| %>
+    <div>
+      ・
+      <%= link_to user_path(n.visitor), class:"link-color" do %>
+        <strong><%= n.visitor.name %></strong>
+      <% end %>
+
+      <% if n.action == "follow" %>
+        <%= "followed you." %>
+      <% elsif n.action == "favorite" %>
+        <%= "liked" %>
+        <%= link_to "your post.", n.post, class:"link-color" %>
+      <% else %>
+        <% if n.post.user_id == n.visited.id %>
+          <%= "commented on" %>
+          <%= link_to "your post.", n.post, class:"link-color" %>
+        <% else %>
+          <span>
+            <%= "commented on" %>
+            <%= link_to post_path(n.post), class:"link-color" do %>
+              <%= n.post.user.name %>'s post
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="small text-muted text-right">
+        <%= time_ago_in_words(n.created_at) %>
+      </div>
+
+    </span>
+    <% end %>
+
+  </div>
+</div>

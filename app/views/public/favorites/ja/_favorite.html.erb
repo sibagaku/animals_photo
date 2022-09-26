@@ -1,0 +1,15 @@
+<% if post.user_id == current_user.id %>
+  <div><i class="fa-solid fa-thumbs-up favorite-color"></i> <%= post.favorites.count %>いいね！</div>
+<% else %>
+  <div id="favorite_buttons_<%= post.id %>">
+    <% if post.favorited_by?(current_user) %>
+      <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+        <i class="fa-solid fa-thumbs-up favorite-color"></i> <%= post.favorites.count %>いいね！
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+        <i class="fa-regular fa-thumbs-up unfavorite-color"></i> <%= post.favorites.count %>いいね
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

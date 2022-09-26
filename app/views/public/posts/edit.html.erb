@@ -1,37 +1,10 @@
 <main>
   <%= render "public/users/list" %>
 
-  <% if @post.errors.any? %>
-    <div class="error-text mt-4">
-      <%= @post.errors.count %>件のエラーが発生しました
-    </div>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <div class="error-text">
-          <li><%= message %></li>
-        </div>
-      <% end %>
-    </ul>
+  <% if I18n.locale.to_s == "ja" %>
+    <%= render "public/posts/ja/edit" %>
+  <% else %>
+    <%= render "public/posts/en/edit" %>
   <% end %>
-
-  <h2 class="title"><strong>投稿の編集</strong></h2>
-
-  <%= form_with model: @post, url: post_path, method: :patch do |f| %>
-    <div class="field">
-      <strong><%= f.label :投稿する写真： %></strong><br>
-      <%= f.file_field :image, accept: "image/*" %>
-    </div>
-    <div class="form-image", id="new-image"></div>
-    <div class="field">
-      <strong><%= f.label :説明文： %></strong><br>
-      <%= f.text_area :introduction, class:"form-control", rows:"4" %>
-    </div>
-    <div class="actions">
-      <%= f.submit"変更を保存する", class:"btn btn-success btn-custom" %>
-    </div>
-  <% end %>
-  <div class="post-delete">
-    <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, class:"btn btn-danger", data: {confirm: "投稿を削除しますか？"} %>
-  </div>
 
 </main>

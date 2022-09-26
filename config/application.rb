@@ -18,6 +18,11 @@ module AnimalsPhoto
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #デフォルト言語
     config.i18n.default_locale = :ja
+    #言語の種類
+    config.available_locales = %i(ja en)
+
   end
 end

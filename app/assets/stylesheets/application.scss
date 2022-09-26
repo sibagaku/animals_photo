@@ -21,6 +21,20 @@
   box-sizing: border-box;
 }
 
+.language {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.language_btn {
+  color: #6DA644;
+  border: 1px solid #6DA644;
+  border-radius: 15px;
+  padding: 0px 10px;
+  font-weight: bold;
+  box-shadow: 0px 2px 2px black;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -207,6 +221,7 @@
 
  .top-btn-custom {
     width: 75%;
+    box-shadow: 0px 3px 5px gray;
  }
 
  .top-admin-btn {
@@ -274,6 +289,7 @@
     width: 60%;
     padding: 10px;
     margin-top: 25px;
+    box-shadow: 0px 3px 5px gray;
  }
 
  .delete-btn {
@@ -282,7 +298,7 @@
  }
 
  .delete-btn-custom {
-    width: 130px;
+    width: 150px;
  }
 
  .danger-text {

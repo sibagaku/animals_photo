@@ -1,0 +1,25 @@
+<div class="user-index">
+  <% if @users.count >= 1 %>
+    <div class="user-index-text">
+      <strong class="user-count link-color"><%= @users.count %></strong> users found
+    </div>
+    <div class="user-index-list">
+      <% @users.each do |user| %>
+        <div class="user-index-card gradient">
+          <div class="user-index-img">
+            <%= image_tag user.profile_image, class:"user-profile-imgcustom" %>
+          </div>
+          <div class="user-index-name">
+            <%= link_to user_path(user.id), class:"user-index-namecustom" do %>
+              <%= user.name %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="user-index-text">
+      <div class="user-count">No applicable users</div>
+    </div>
+  <% end %>
+</div>
