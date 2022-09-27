@@ -28,9 +28,7 @@
     </div>
   </div>
 
-  <% if user.self_introduction == ""  %>
-    <div class="row mt-4"></div>
-  <% elsif user.self_introduction == nil %>
+  <% if user.self_introduction == "" or user.self_introduction == nil %>
     <div class="row mt-4"></div>
   <% else %>
     <div class="row mt-2">

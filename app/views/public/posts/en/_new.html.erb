@@ -15,8 +15,11 @@
 
 <%= form_with model: post, url: posts_path, method: :post do |f| %>
   <div class="field">
-    <strong><%= f.label :"Photos to be submitted：" %></strong><br>
-    <%= f.file_field :image, accept: "image/*" %>
+    <strong><%= f.label :"Photos to be submitted：" %></strong>
+    <%= f.label :image, class: "image_input_btn" do %>
+      <span>Select Image</span>
+      <%= f.file_field :image, accept: "image/*", class: "image_input_form" %>
+    <% end %>
   </div>
   <div class="form-image", id="new-image"></div>
   <div class="field">

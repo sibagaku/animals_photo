@@ -16,8 +16,11 @@
 
   <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
     <div class="field">
-      <strong><%= f.label :プロフィール画像： %></strong><br>
-      <%= f.file_field :profile_image, accept: "image/*" %>
+      <strong><%= f.label :プロフィール画像： %></strong>
+      <%= f.label :profile_image, class: "image_input_btn" do %>
+        <span>画像を選択</span>
+        <%= f.file_field :profile_image, accept: "image/*", class: "image_input_form" %>
+      <% end %>
     </div>
     <div class="field">
       <strong><%= f.label :ニックネーム： %></strong><br>
@@ -31,7 +34,7 @@
       <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
     </div>
   <% end %>
-  
+
   <div class="delete-btn">
     <%= link_to "退　会", unsubscribe_path, class:"btn btn-danger delete-btn-custom" %>
   </div>

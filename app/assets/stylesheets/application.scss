@@ -277,7 +277,7 @@
 
  .field {
     text-align: left;
-    margin: 0 auto 20px;
+    margin: 0 auto 0;
     width: 60%;
  }
 
@@ -403,8 +403,23 @@
     text-align: center;
 }
 
+.image_input_btn{
+  background-color: #6DA644;
+  width: 140px;
+  height: 30px;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: white;
+  text-align: center;
+}
+
+.image_input_form{
+  display: none;
+}
+
 .form-image {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .new-img {
