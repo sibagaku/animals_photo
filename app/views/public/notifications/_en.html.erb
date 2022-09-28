@@ -1,4 +1,6 @@
 <div class="notification-index">
+
+  <!--通知　ここから-->
   <div>
     <% notifications.each do |n| %>
     <div>
@@ -22,7 +24,7 @@
             <%= link_to post_path(n.post), class:"link-color" do %>
               <%= n.post.user.name %>'s post
             <% end %>
-          </div>
+          </span>
         <% end %>
       <% end %>
 
@@ -30,8 +32,9 @@
         <%= time_ago_in_words(n.created_at) %>
       </div>
 
-    </span>
+    </div>
     <% end %>
 
   </div>
+  <!--通知　ここまで-->
 </div>

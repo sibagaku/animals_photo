@@ -1,3 +1,4 @@
+<!--ヘッダーメニュー　ここから-->
 <div class="header-list mr-auto">
  <input type="checkbox" class="menu-btn" id="menu-btn">
   <label for="menu-btn" class="menu-icon">
@@ -33,11 +34,17 @@
     <% end %>
     </ul>
 </div>
+<!--ヘッダーメニュー　ここまで-->
+
+<!--ヘッダーロゴ　ここから-->
 <div class="header-list mx-auto">
 <%= link_to user_path(current_user.id) do %>
   <%= image_tag "logo.png", class:"logo" %>
 <% end %>
 </div>
+<!--ヘッダーロゴ　ここまで-->
+
+<!--ヘッダー通知リンク　ここから-->
 <div class="header-list ml-auto">
 <% if unchecked_notifications.any? %>
   <%= link_to user_notifications_path(current_user.id) do %>
@@ -52,3 +59,4 @@
   <% end %>
 <% end %>
 </div>
+<!--ヘッダー通知リンク　ここ-->

@@ -1,4 +1,5 @@
 <div>
+  <!--ユーザー情報　ここから-->
   <div class="row mt-4">
     <div class="col-3">
       <%= image_tag user.get_profile_image(170,170) %>
@@ -27,7 +28,9 @@
       <% end %>
     </div>
   </div>
-
+  <!--ユーザー情報　ここまで-->
+  
+  <!--ユーザー自己紹介文　ここから-->
   <% if user.self_introduction == "" or user.self_introduction == nil %>
     <div class="row mt-4"></div>
   <% else %>
@@ -37,7 +40,9 @@
       </div>
     </div>
   <% end %>
-
+  <!--ユーザー自己紹介文　ここまで-->
+  
+  <!--ユーザー投稿写真　ここから-->
   <div class="tab-menu">
     <div class="tab-content">
       <p class="tab-btn">投稿一覧</p>
@@ -50,4 +55,5 @@
       </div>
     <% end %>
   </div>
+  <!--ユーザー投稿写真　ここまで-->
 </div>

@@ -1,4 +1,6 @@
 <div class="notification-index">
+  
+  <!--通知　ここから-->
   <div>
     <% notifications.each do |n| %>
     <div>
@@ -7,7 +9,7 @@
         <strong><%= n.visitor.name %></strong>
       <% end %>
       さんが
-
+      
       <% if n.action == "follow" %>
         <%= "あなたをフォローしました。" %>
       <% elsif n.action == "favorite" %>
@@ -23,7 +25,7 @@
               <%= n.post.user.name %>さんの投稿
             <% end %>
             <%= "にコメントしました。" %>
-          </div>
+          </span>
         <% end %>
       <% end %>
 
@@ -31,8 +33,9 @@
         <%= time_ago_in_words(n.created_at) %>
       </div>
 
-    </span>
+    </div>
     <% end %>
 
   </div>
+  <!--通知　ここまで-->
 </div>

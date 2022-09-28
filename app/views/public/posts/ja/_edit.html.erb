@@ -13,11 +13,12 @@
 
 <h2 class="title"><strong>投稿の編集</strong></h2>
 
+<!--投稿編集　ここから-->
 <%= form_with model: @post, url: post_path, method: :patch do |f| %>
   <div class="field">
     <strong><%= f.label :投稿する写真： %></strong>
     <%= f.label :image, class: "image_input_btn" do %>
-      <span>画像を選択</span>
+      <i class="fa-solid fa-plus"></i>
       <%= f.file_field :image, accept: "image/*", class: "image_input_form" %>
     <% end %>
   </div>
@@ -30,6 +31,10 @@
     <%= f.submit"変更を保存する", class:"btn btn-success btn-custom" %>
   </div>
 <% end %>
+<!--投稿編集　ここまで-->
+
+<!--投稿削除　ここから-->
 <div class="post-delete">
   <%= link_to "投稿を削除する", post_path(@post.id), method: :delete, class:"btn btn-danger", data: {confirm: "投稿を削除しますか？"} %>
 </div>
+<!--投稿削除　ここまで-->

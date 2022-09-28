@@ -13,11 +13,12 @@
 
 <h2 class="title"><strong>新規投稿画面</strong></h2>
 
+<!--新規投稿機能　ここから-->
 <%= form_with model: post, url: posts_path, method: :post do |f| %>
   <div class="field">
     <strong><%= f.label :投稿する写真： %></strong>
     <%= f.label :image, class: "image_input_btn" do %>
-      <span>画像を選択</span>
+      <i class="fa-solid fa-plus"></i>
       <%= f.file_field :image, accept: "image/*", class: "image_input_form" %>
     <% end %>
   </div>
@@ -30,3 +31,4 @@
     <%= f.submit"写真を投稿する", class:"btn btn-success btn-custom" %>
   </div>
 <% end %>
+<!--新規投稿機能　ここまで-->

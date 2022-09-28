@@ -21,6 +21,7 @@ module AnimalsPhoto
 
     #デフォルト言語
     config.i18n.default_locale = :ja
+    
     #言語の種類
     config.available_locales = %i(ja en)
 

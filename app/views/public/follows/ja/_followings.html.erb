@@ -3,6 +3,7 @@
     <strong class=""><%= @user.name %></strong>さんのフォロー：<strong class="link-color"><%= @user.following_users.count %>人</strong>
   </div>
 
+  <!--フォロー一覧　ここから-->
   <div>
     <div>
       <% @users.each do |user| %>
@@ -20,4 +21,5 @@
       <%= paginate @users %>
     </div>
   </div>
+  <!--フォロー一覧　ここまで-->
 </div>

@@ -2,10 +2,12 @@
   <p>
     Enter the <strong>"nickname"</strong> of the user you wish to search for
   </p>
+  <!--ユーザーネーム入力　ここから-->
   <div class="search-form">
     <%= form_with url: users_path, method: :get, local: true do |f| %>
       <%= f.text_field :name, placeholder:"nickname" %>
       <%= f.submit :search %>
     <% end %>
   </div>
+  <!--ユーザーネーム入力　ここまで-->
 </div>

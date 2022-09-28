@@ -1,4 +1,5 @@
 <div class="row">
+  <!--ログイン関連　ここから-->
   <div class="col-5 pl-0 top-btn">
     <div>
       <%= link_to new_user_registration_path, class:"btn btn-success mt-5 p-4 top-btn-custom" do %>
@@ -19,7 +20,9 @@
       <% end %>
     </div>
   </div>
-
+  <!--ログイン関連　ここまで-->
+  
+  <!--TOP写真　ここから-->
   <div class="col-7 mt-5 px-0">
     <div id="skippr">
       <div id="theTarget">
@@ -30,13 +33,18 @@
       </div>
     </div>
   </div>
-
+  <!--TOP写真　ここまで-->
+  
+  <!--管理者ログイン　ここから-->
   <div class="col-5 mt-auto top-btn pl-0">
     <%= link_to new_admin_session_path, class:"btn btn-success top-btn-custom top-admin-btn" do %>
       <h2 class="top-btn-text">Admin</h2><br>
       <p class="top-btn-text">※administrators only</p>
     <% end %>
   </div>
+  <!--管理者ログイン　ここまで-->
+  
+  <!--TOPテキスト　ここから-->
   <div class="col-7 px-0">
     <p class="top-text mb-0">
       <strong>Post photos of your animals and see how cute or cool they look ,
@@ -44,5 +52,6 @@
       Also, find a photo you like and make your own bookmark!</strong>
     </p>
   </div>
+  <!--TOPテキスト　ここまで-->
 
 </div>

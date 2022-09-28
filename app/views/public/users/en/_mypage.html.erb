@@ -1,5 +1,6 @@
 <div>
   <div class="row mt-4">
+    <!--ユーザー情報　ここから-->
     <div class="col-3 user-profile-img">
       <%= image_tag user.get_profile_image(170,170) %>
     </div>
@@ -19,11 +20,16 @@
         </div>
       </div>
     </div>
+    <!--ユーザー情報　ここまで-->
+    
+    <!--新規投稿リンク　ここから-->
     <div class="col-3 my-auto">
       <%= link_to "Submit a photo", new_post_path, class:"btn btn-success user-show-btn btn-lg" %>
     </div>
+    <!--新規投稿リンク　ここまで-->
   </div>
 
+  <!--ユーザー自己紹介文　ここから-->
   <% if user.self_introduction == "" or user.self_introduction == nil %>
     <div class="row mt-4"></div>
   <% else %>
@@ -33,7 +39,9 @@
       </div>
     </div>
   <% end %>
-
+  <!--ユーザー自己紹介文　ここまで-->
+  
+  <!--タブ　ここから-->
   <div class="tab-menu">
     <div class="tab-content">
       <%= link_to "Posting List", user_path(current_user), remote: true, class:"tab-btn" %>
@@ -42,15 +50,21 @@
       <%= link_to "Like List", bookmark_path, remote: true, class:"tab-btn" %>
     </div>
   </div>
+  <!--タブ　ここまで-->
+  
   <div class="tab-list gradient">
     <% if user.present? %>
+      <!--自分の投稿一覧　ここから-->
       <div class="top_area">
         <%= render "show" %>
       </div>
+      <!--自分の投稿一覧　ここまで-->
     <% else %>
+      <!--いいね一覧　ここから-->
       <div class="top_area">
         <%= render "bookmark" %>
       </div>
+      <!--いいね一覧　ここまで-->
     <% end %>
   </div>
 </div>

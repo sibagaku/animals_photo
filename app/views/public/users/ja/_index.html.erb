@@ -5,6 +5,7 @@
     </div>
     <div class="user-index-list">
       <% @users.each do |user| %>
+        <!--ユーザー情報　ここから-->
         <div class="user-index-card gradient">
           <div class="user-index-img">
             <%= image_tag user.profile_image, class:"user-profile-imgcustom" %>
@@ -15,6 +16,7 @@
             <% end %>
           </div>
         </div>
+        <!--ユーザー情報　ここまで-->
       <% end %>
     </div>
   <% else %>

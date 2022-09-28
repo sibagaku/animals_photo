@@ -3,10 +3,12 @@
     検索したいユーザーの<strong>”ニックネーム”</strong>を<br>
     入力してください
   </p>
+  <!--ユーザーネーム入力　ここから-->
   <div class="search-form">
     <%= form_with url: users_path, method: :get, local: true do |f| %>
       <%= f.text_field :name, placeholder:"ニックネーム" %>
       <%= f.submit :検索 %>
     <% end %>
   </div>
+  <!--ユーザーネーム入力　ここ-->
 </div>

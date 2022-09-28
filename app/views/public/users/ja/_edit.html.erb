@@ -14,6 +14,7 @@
 <div class="container">
   <h2 class="title"><strong>会員情報編集画面</strong></h2>
 
+  <!--プロフィール編集　ここから-->
   <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
     <div class="field">
       <strong><%= f.label :プロフィール画像： %></strong>
@@ -34,8 +35,11 @@
       <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
     </div>
   <% end %>
-
+  <!--プロフィール編集　ここまで-->
+  
+  <!--退会ボタン　ここから-->
   <div class="delete-btn">
     <%= link_to "退　会", unsubscribe_path, class:"btn btn-danger delete-btn-custom" %>
   </div>
+  <!--退会ボタン　ここまで-->
 </div>

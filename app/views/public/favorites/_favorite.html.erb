@@ -1,5 +1,7 @@
+<!--いいね　ここから-->
 <% if I18n.locale.to_s == "ja" %>
   <%= render "public/favorites/ja/favorite", post: @post  %>
 <% else %>
   <%= render "public/favorites/en/favorite", post: @post %>
 <% end %>
+<!--いいね　ここ-->

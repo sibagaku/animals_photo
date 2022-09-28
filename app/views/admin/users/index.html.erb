@@ -4,6 +4,7 @@
 
   <div class="admin-index-box">
     <h2 class="admin-index-title"><strong>登録済みのユーザー一覧</strong></h2>
+    <!--ユーザー一覧　ここから-->
     <div class="admin-index-list gradient">
       <% @users.each do |user| %>
         <div class="admin-index-user">
@@ -23,6 +24,7 @@
         </div>
       <% end %>
     </div>
+    <!--ユーザー一覧　ここまで-->
     <div>
       <%= paginate @users %>
     </div>

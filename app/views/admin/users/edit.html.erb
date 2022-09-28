@@ -3,6 +3,7 @@
 
   <h2 class="admin-edit"><strong>編集画面</strong></h2>
 
+  <!--ユーザー編集　ここから-->
   <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
   <div class="field">
     <strong><%= f.label :プロフィール画像： %></strong><br>
@@ -27,5 +28,6 @@
     <%= f.submit "変　更", class:"btn btn-success btn-custom" %>
   </div>
   <% end %>
+  <!--ユーザー編集　ここまで-->
 
 </main>

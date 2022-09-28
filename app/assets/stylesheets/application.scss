@@ -405,12 +405,13 @@
 
 .image_input_btn{
   background-color: #6DA644;
-  width: 140px;
+  width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 50%;
   padding-top: 2px;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 
 .image_input_form{
