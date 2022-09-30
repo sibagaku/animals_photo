@@ -4,12 +4,12 @@
     <div>
       <h3><strong>Total<%= @post_all.count %></strong></h3>
     </div>
-    
+
     <!--投稿検索　ここから-->
     <div class="post-index-form">
       <%= form_with url: posts_path, method: :get, local: true do |f| %>
         <%= f.text_field :introduction, class:"post-index-formcustom", placeholder:"Please insert keywords" %>
-        <%= f.submit "search" %>
+        <%= f.submit "search", class:"post-index-search" %>
       <% end %>
     </div>
     <!--投稿検索　ここまで-->
@@ -20,7 +20,7 @@
   <!--投稿一覧　ここから-->
   <div class="post-index-content">
   <% @posts.each do |post| %>
-    <div class="post-index-list gradient-post-index">
+    <div class="post-index-list gradient-post-index btn-shadow">
       <div>
         <%= link_to post_path(post.id) do %>
           <%= image_tag post.image, class:"post-index-image" %>
@@ -42,7 +42,7 @@
   <% end %>
   </div>
   <!--投稿一覧　ここまで-->
-  
+
   <!--ページネーション　ここから-->
   <div class="index-page">
     <%= paginate @posts %>

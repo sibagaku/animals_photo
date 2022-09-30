@@ -8,7 +8,7 @@
 
 <!--退会確認ボタン　ここから-->
 <div class="delete-btn">
-  <%= link_to "退会しない", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5" %>
-  <%= link_to "退会する", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom", data: {confirm: "本当に退会しますか？"} %>
+  <%= link_to "退会しない", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5 btn-shadow" %>
+  <%= link_to "退会する", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom btn-shadow", data: {confirm: "本当に退会しますか？"} %>
 </div>
 <!--退会確認ボタン　ここまで-->

@@ -7,7 +7,7 @@
 
 <!--退会確認ボタン　ここから-->
 <div class="delete-btn">
-  <%= link_to "Not withdrawal", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5" %>
-  <%= link_to "Withdrawal", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom", data: {confirm: "Are you sure you want to resign your membership?"} %>
+  <%= link_to "Not withdrawal", user_path(@user.id), class:"btn btn-success delete-btn-custom mr-5 btn-shadow" %>
+  <%= link_to "Withdrawal", withdral_path(@user.id), method: :patch, class:"btn btn-danger delete-btn-custom btn-shadow", data: {confirm: "Are you sure you want to resign your membership?"} %>
 </div>
 <!--退会確認ボタン　ここまで-->

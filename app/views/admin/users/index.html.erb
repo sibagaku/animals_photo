@@ -2,12 +2,12 @@
 
   <%= render "list" %>
 
-  <div class="admin-index-box">
+  <div class="admin-index-box btn-shadow">
     <h2 class="admin-index-title"><strong>登録済みのユーザー一覧</strong></h2>
     <!--ユーザー一覧　ここから-->
     <div class="admin-index-list gradient">
       <% @users.each do |user| %>
-        <div class="admin-index-user">
+        <div class="admin-index-user btn-shadow">
           <%= link_to admin_user_path(user.id) do %>
             <div>
               <%= image_tag user.profile_image, class:"admin-user-img" %>

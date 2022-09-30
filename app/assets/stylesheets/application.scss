@@ -24,6 +24,7 @@
 .language {
   text-align: right;
   margin-top: 5px;
+
 }
 
 .language_btn {
@@ -316,6 +317,7 @@
 
  .user-show-btn {
     width: 100%;
+    box-shadow: 0px 3px 5px gray;
  }
 
 .user-show-introduction {
@@ -346,6 +348,7 @@
     border: 1px solid #6DA644;
     padding: 10px;
     margin-bottom: 30px;
+    box-shadow: 0px 3px 5px gray;
 }
 
 .user-image-list {
@@ -373,6 +376,7 @@
     height: 200px;
     border-radius: 10px;
     object-fit: cover;
+    box-shadow: 0px 3px 5px gray;
 }
 
 .pagination {
@@ -501,6 +505,7 @@
 
 .post-show-img {
     width: 100%;
+    box-shadow: 0px 3px 5px gray;
 }
 
 .post-show-text {
@@ -508,6 +513,15 @@
     border: 1px solid #82D92B;
     border-radius: 10px;
     padding: 10px 20px;
+}
+
+.comment_btn {
+  width: 25%;
+  height: 30px;
+  background-color: #82D92B;
+  border: 1px solid #6DA644;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px gray;
 }
 
 #comment_input {
@@ -538,6 +552,13 @@
 
 .post-index-form {
     margin: auto 0 auto auto;
+}
+
+.post-index-search {
+  background-color: #C8F288;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 5px;
 }
 
 .post-index-formcustom {
@@ -602,6 +623,10 @@
 .post-delete {
     margin-top: 50px;
     text-align: center;
+}
+
+.btn-shadow {
+  box-shadow: 0px 3px 5px gray;
 }
 
 .favorite-color {

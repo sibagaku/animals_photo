@@ -1,7 +1,7 @@
 <main>
 
   <%= render "list" %>
-  
+
   <!--ユーザー情報　ここから-->
   <div class="admin-show-info">
     <div class="admin-show-profile-image">
@@ -20,7 +20,7 @@
     </div>
   </div>
   <!--ユーザー情報　ここまで-->
-  
+
   <!--ユーザー自己紹介文　ここから-->
   <% if @user.self_introduction == "" or @user.self_introduction == nil  %>
     <div class="admin-show-introduction">
@@ -40,7 +40,7 @@
   <!--ユーザー編集リンク　ここまで-->
 
   <!--ユーザー投稿写真　ここから-->
-  <div class="admin-show-box gradient">
+  <div class="admin-show-box gradient btn-shadow">
     <div class="admin-show-list">
       <% @posts.each do |post| %>
         <div class="user-image-link">
