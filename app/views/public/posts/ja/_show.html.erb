@@ -42,7 +42,7 @@
     <%= image_tag @post.image, class:"post-show-img"%>
   </div>
   <!--投稿写真　ここまで-->
-  
+
   <div class="post_show_content">
     <!--いいね　ここから-->
     <%= render "public/favorites/favorite", post: @post %>
@@ -54,19 +54,19 @@
     <% end %>
     <!--投稿編集リンク　ここまで-->
   </div>
-  
+
   <!--投稿説明文　ここから-->
   <div class="post-show-text">
     <%= @post.introduction %>
   </div>
   <!--投稿説明文　ここまで-->
-  
+
   <!--コメントフォーム　ここから-->
   <div id="comment_input">
     <%= render "public/comments/form", post: @post, post_comment: @post_comment %>
   </div>
   <!--コメントフォーム　ここまで-->
-  
+
   <!--コメント一覧　ここから-->
   <div id="comment_list">
     <%= render "public/comments/comment_list", post: @post %>
