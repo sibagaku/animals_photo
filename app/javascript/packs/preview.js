@@ -56,7 +56,7 @@ if (document.URL.match(/edit/)){
 
 if (document.URL.match(/edit/)){
   document.addEventListener("DOMContentLoaded", () => {
-    
+
     const createImageHTML = (blob) => {
       const imageElement = document.getElementById("new-image");
 
@@ -66,10 +66,10 @@ if (document.URL.match(/edit/)){
 
       imageElement.appendChild(blobImage);
     };
-    
+
     document.getElementById("user_profile_image").addEventListener("change", (e) => {
 
-      const imageContent = document.querySelector("img");
+      const imageContent = document.querySelector("#new-image > img");
       if (imageContent){
         imageContent.remove();
       }
